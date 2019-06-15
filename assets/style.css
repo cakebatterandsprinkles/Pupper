@@ -6,14 +6,26 @@ body {
     color: #1f1f1f;
 }
 
-#container {
-    margin-top:1.25rem;
-    background-color: rgba(255, 255, 255, 0.699);
-    border-radius: 100px;
+#contact-us, #tech-used {
+    background-color: rgb(255, 255, 255);
 }
 
-#illustration {
+#container, .wrapper{
+    margin-top:1.25rem;
+    background-color: rgba(255, 255, 255, 0.911);
+    border-radius: 100px;
+}
+.wrapper {
+    padding:1.25rem 2.5 rem 1.25rem 2.5rem;
+}
+
+#illustration-main {
     max-width: 30rem;
+    border-radius:400px;
+}
+
+#illustration-contact {
+    max-width: 20rem;
     border-radius:400px;
 }
 
@@ -33,17 +45,17 @@ body {
     padding-top: 3.5rem;
 }
 
-.watch-button {
+.watch-button, .submit-button {
     border: 2px solid #e040fb;
     border-radius: 20px;
     background-color:white;
     color:#e040fb;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    padding: 0 2rem 4rem 1rem;
+    padding: 0 1rem 4rem 1rem;
 }
 
-.watch-button:hover {
+.watch-button:hover, .submit-button:hover {
     background-color:#e040fb;
     color: white;
 }
@@ -59,11 +71,44 @@ body {
     color:white;
 }
 
+.logos {
+    max-width:8rem;
+    height:auto;
+    margin: 2.5rem 0 1.25rem 0;
+}
+
+.heading {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin: 3rem 0 1rem 0;
+}
+.contact-text {
+    text-align:center;
+}
+
+.input-field {
+    padding:2rem 2rem 2rem 4rem;
+}
+
+.divider-line {
+    border: 0; 
+    height: 1px; 
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #1f1f1f, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #1f1f1f, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #1f1f1f, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #1f1f1f, #f0f0f0);
+}
+
+.logo-wrapper {
+    text-align: center;
+}
+
 @media only screen and (max-width: 1350px) {
-    #illustration {
+    #illustration-main {
         max-width: 20rem;
         margin-top: 50px;
     }
+
     #content-text {
         padding-top:0;
     }
@@ -71,3 +116,7 @@ body {
         margin-top: 1rem;
     }
 }
+
+/* SASS */
+
+$primary-color: color("materialize-red", "lighten-2") !default;

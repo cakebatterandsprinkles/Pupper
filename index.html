@@ -33,21 +33,22 @@
     <div class="row content">
       <div class="col s12 l6" id="content-text">
         <h1>Welcome to Pupper!</h1>
+        <hr class="divider-line">
         <p id="slogan">The Ultimate Pet Entertainment TV</p>
-        <a href="#carousel" class="waves-effect waves-light btn-large watch-button"><i class="fas fa-paw"></i> Watch the Demo!</a>
+        <a href="#carousel" class="waves-effect waves-light btn-large watch-button"><i class="fas fa-paw"></i> Watch the
+          Demo!</a>
       </div>
       <div class="col s12 l6">
         <div class="card-image">
-          <img src="assets/images/pupper.jpg" class="circle responsive-image" id="illustration" alt="image of a puppy!">
+          <img src="assets/images/pupper.jpg" class="circle responsive-image" id="illustration-main" alt="image of a puppy!">
         </div>
       </div>
-      <div class="row">  
+      <div class="row">
         <div class="col s12">
-            <div><a href="#about-us"><i id="scroll-icon" class="material-icons">expand_more</i></a></div>
+          <div><a href="#about-us"><i id="scroll-icon" class="material-icons">expand_more</i></a></div>
         </div>
       </div>
     </div>
-
   </div>
   <div id="carousel">
     <input type="text" id="search-bar">
@@ -76,8 +77,54 @@
     </div>
 
   </div>
-  <div id="contact-us"></div>
+  <div id="contact-us">
+    <div class="container wrapper">
+      <div class="row">
+        <div class="col s12 xl6 contact-text">
+          <p class="heading">Drop us a line!</p>
+          <p>We'd love to hear from you!</p>
+          <img src="assets/images/doggo-01.png" alt="dog illustration" class="circle responsive-image" id="illustration-contact">
+        </div>
+        <div class="col s12 xl6">
+          <div class="row input-field">
+            <div>
+              <input placeholder="Jane" id="first_name" type="text" class="validate form">
+              <label for="first_name">First Name</label>
+            </div>
+            <div>
+              <input placeholder="Smith" id="last_name" type="text" class="validate form">
+              <label for="last_name">Last Name</label>
+            </div>
+            <div>
+              <input placeholder="janesmith@gmail.com" id="email" type="email" class="validate form">
+              <label for="email">E-mail</label>
+            </div>
+            <form action="post">
+              <textarea id="textarea1" class="materialize-textarea form"></textarea>
+              <label for="textarea1">Textarea</label>
+            </form>
+            <a class="waves-effect waves-light btn-large submit-button"><i class="fas fa-paw"></i> Submit </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <footer id="tech-used">
+    <div class="container wrapper">
+      <div class="row">
+        <div class="col s12 logo-wrapper">
+          <p class="heading">Technologies Used:</p>
+          <hr class="divider-line">
+          <img class="logos" src="assets/images/html5-logo.png" alt="HTML5 logo">
+          <img class="logos" src="assets/images/css3-logo.png" alt="CSS3 logo">
+          <img class="logos" src="assets/images/js-logo.png" alt="JS logo">
+          <img class="logos"
+            src="assets/images/kisspng-firebase-cloud-messaging-google-developers-softwar-5ae1d9fda49409.7709198715247508456741.png"
+            alt="Firebase logo">
+          <img class="logos" src="assets/images/materialize-seeklogo.com-01.png" alt="materialize logo">
+        </div>
+      </div>
+    </div>
   </footer>
 
   <!-- Compiled and minified JavaScript -->
