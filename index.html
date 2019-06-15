@@ -40,7 +40,8 @@
       </div>
       <div class="col s12 l6">
         <div class="card-image">
-          <img src="assets/images/pupper.jpg" class="circle responsive-image" id="illustration-main" alt="image of a puppy!">
+          <img src="assets/images/pupper.jpg" class="circle responsive-image" id="illustration-main"
+            alt="image of a puppy!">
         </div>
       </div>
       <div class="row">
@@ -51,7 +52,11 @@
     </div>
   </div>
   <div id="carousel">
-    <input type="text" id="search-bar">
+    <div class="container">
+      <input type="text" id="search-bar">
+      <div class="carousel">
+      </div>
+    </div>
   </div>
 
   <div id="about-us">
@@ -83,7 +88,8 @@
         <div class="col s12 xl6 contact-text">
           <p class="heading">Drop us a line!</p>
           <p>We'd love to hear from you!</p>
-          <img src="assets/images/doggo-01.png" alt="dog illustration" class="circle responsive-image" id="illustration-contact">
+          <img src="assets/images/doggo-01.png" alt="dog illustration" class="circle responsive-image"
+            id="illustration-contact">
         </div>
         <div class="col s12 xl6">
           <div class="row input-field">
@@ -125,10 +131,29 @@
         </div>
       </div>
     </div>
+    <div class="row social-media-div">
+        <div class="col s12">
+          <div class="social-media">
+            <p>Copyright by AwesomePossum, 2019</p>
+            <p>Share the <i class="fas fa-heart heart-logo"></i> :  
+              <a href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank"><i class="fab fa-facebook-square social-media-logos"></i></a>
+              <a href="http://twitter.com/share?text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3"><i class="fab fa-twitter social-media-logos"></i></a>
+              <a href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i class="fab fa-pinterest social-media-logos"></i></a>
+              <a href="http://www.tumblr.com/share/link?url=[URL]&amp;name=[title]&amp;description=[content]"><i class="fab fa-tumblr social-media-logos"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
   </footer>
+
+  <!-- jquery CDN -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- our CDN -->
   <script src="assets/logic.js"></script>
 </body>
 
