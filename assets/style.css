@@ -52,6 +52,16 @@ body {
     padding-top: 3.5rem;
 }
 
+.circular--square {
+    border-radius: 50%;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+    width: 200px;
+  }
+  
+
 .watch-button, .submit-button {
     border: 2px solid #e040fb;
     border-radius: 20px;
