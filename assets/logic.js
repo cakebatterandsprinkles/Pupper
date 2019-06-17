@@ -94,6 +94,8 @@ $( document ).ready(function(){
   console.log("ready")
   //adds dropdown for the account membership
   $(".dropdown-trigger").dropdown();
+  //makes carousel functional
+  $('.carousel').carousel();
 });
   
 

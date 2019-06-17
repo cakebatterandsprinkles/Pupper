@@ -23,7 +23,7 @@ body {
     border-radius: 100px;
 }
 .wrapper {
-    padding:1.25rem 2.5 rem 1.25rem 2.5rem;
+    padding:1.25rem 2.5rem 1.25rem 2.5rem;
 }
 
 #illustration-main {
@@ -51,6 +51,27 @@ body {
 #content-text {
     padding-top: 3.5rem;
 }
+
+#youtube-search {
+    padding:0;
+    margin: 0 2.5rem 0 2.5rem;
+    background-color: #e040fb;
+    color:white;
+}
+
+#youtube-search:hover {
+    background-color: white;
+}
+
+#search-bar {
+    margin:auto;
+    max-width: 80%;
+}
+
+#carousel-main {
+    margin-top: 1.25rem;
+}
+
 .row-image-left {
     text-align: center;
     padding-left: 5rem;
