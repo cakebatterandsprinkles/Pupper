@@ -17,7 +17,7 @@
   console.log(database);
 
   //   creating directives for the submit button for members
-  $("#add-new-user-btn").on("click"), function(event) {
+  $("#add-new-user-btn").on("click", function(event) {
 
     // prevent page reload upon form submission
     event.preventDefault();
@@ -44,4 +44,4 @@
     
     // testing the database
     console.log(newUser.name);
-}
+  });
