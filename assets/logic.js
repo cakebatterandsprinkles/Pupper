@@ -82,6 +82,10 @@ var userPreferencesRef = userRef.child('User Preferences');
             // Handle errors here
             var errorCode = error.code;
             var errorMessage = error.message;
+
+            // TODO: Dynamic insertion into html when error occurs to warn user
+            console.log(errorCode);
+            console.log(errorMessage);
         });
 
         // clear out input forms
@@ -111,4 +115,29 @@ var userPreferencesRef = userRef.child('User Preferences');
     database.ref().push(newUser);
     
     // testing the database
-    console.log(newUser.name);
+    console.log(newUser.name);    console.log(newUser.name);
+});
+
+// button to sign in existing users
+$("#login-returning-btn").on("click", function(event){
+
+    // setting variables for the returning user inputs
+    email = $("#returning-email-input").val().trim();
+    pass = $("#returning-password-input").val().trim();
+
+    // declaring var for user auth method
+    const auth = firebase.auth();
+
+    // promise that runs the authorization
+    auth.SignInWithEmailAndPassword(email, pass).catch(function(error) {
+
+        // handle errors in authentication
+        errorCode = error.code;
+        errorMessage = error.message;
+        
+        // console log for now but needs to be dynamically inserted into html form
+        console.log(errorCode);
+        console.log(errorMessage);
+    })
+})
+
