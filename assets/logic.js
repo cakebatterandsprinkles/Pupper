@@ -121,6 +121,8 @@ var userPreferencesRef = userRef.child('User Preferences');
 // button to sign in existing users
 $("#login-returning-btn").on("click", function(event){
 
+    event.preventDefault();
+
     // setting variables for the returning user inputs
     email = $("#returning-email-input").val().trim();
     pass = $("#returning-password-input").val().trim();
@@ -140,4 +142,6 @@ $("#login-returning-btn").on("click", function(event){
         console.log(errorMessage);
     })
 })
+
+
 
