@@ -12,6 +12,91 @@
   // Initializegit  Firebase
   firebase.initializeApp(firebaseConfig);
 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$( document ).ready(function(){
+  console.log("ready")
+  //adds dropdown for the account membership
+  $(".dropdown-trigger").dropdown();
+});
+  
+
   // declaration of firebase 
   var database = firebase.database();
   console.log(database);
