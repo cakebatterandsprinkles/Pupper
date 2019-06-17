@@ -115,7 +115,7 @@ var userPreferencesRef = userRef.child('User Preferences');
     database.ref().push(newUser);
     
     // testing the database
-    console.log(newUser.name);    console.log(newUser.name);
+    console.log(newUser.name);
 });
 
 // button to sign in existing users
