@@ -1,3 +1,14 @@
+$(document).ready(function(){
+    console.log("ready");
+    // adds dropdown for the account membership
+    $(".dropdown-trigger").dropdown();
+    // makes carousel functional
+    $(".carousel").carousel();
+})
+
+
+
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAcONzsJOrUW2xJRf1LVc0QUJoRFdiK0xM",
