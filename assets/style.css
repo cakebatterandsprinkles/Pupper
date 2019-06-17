@@ -51,17 +51,20 @@ body {
 #content-text {
     padding-top: 3.5rem;
 }
-.row1,
-.row3 {
-    float: left;
-    padding: 0 20px 20px 0;
-}
-.row2,
-.row4 {
-    float: right;
-    overflow: auto;
-}
 
+.row-image-left {
+text-align: center;
+padding-left: 5rem;
+padding-right: 5rem;
+}
+.row-image-right {
+text-align: center;
+padding-left: 5rem;
+padding-right: 5rem;
+}
+.paragraph {
+    margin-top: 5rem;
+}
 .circular--square {
     border-radius: 50%;
     border-top-left-radius: 50% 50%;
@@ -69,6 +72,8 @@ body {
     border-bottom-right-radius: 50% 50%;
     border-bottom-left-radius: 50% 50%;
     width: 200px;
+    clear: right;
+    float: left;
   }
   
 
