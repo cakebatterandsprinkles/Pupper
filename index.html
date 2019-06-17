@@ -28,7 +28,27 @@
 </head>
 
 <body>
-  <nav id="top-navbar"></nav>
+  <nav>
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#!">login</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">sign up</a></li>
+    </ul>
+    <div class="nav-wrapper purple">
+      <div class="container">
+        <a href="#!" class="brand-logo">Pupper</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html">About Us</a></li>
+          <li><a href="badges.html">Contact</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i
+                class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
   <div id="container" class="container">
     <div class="row content">
       <div class="col s12 l6" id="content-text">
@@ -40,7 +60,7 @@
       </div>
       <div class="col s12 l6">
         <div class="card-image">
-          <img src="assets/images/pupper.jpg" class="circle responsive-image" id="illustration-main"
+          <img src="assets/images/pupper.png" class="circle responsive-image" id="illustration-main"
             alt="image of a puppy!">
         </div>
       </div>
@@ -132,18 +152,23 @@
       </div>
     </div>
     <div class="row social-media-div">
-        <div class="col s12">
-          <div class="social-media">
-            <p>Copyright by AwesomePossum, 2019</p>
-            <p>Share the <i class="fas fa-heart heart-logo"></i> :  
-              <a href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank"><i class="fab fa-facebook-square social-media-logos"></i></a>
-              <a href="http://twitter.com/share?text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3"><i class="fab fa-twitter social-media-logos"></i></a>
-              <a href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i class="fab fa-pinterest social-media-logos"></i></a>
-              <a href="http://www.tumblr.com/share/link?url=[URL]&amp;name=[title]&amp;description=[content]"><i class="fab fa-tumblr social-media-logos"></i></a>
-            </p>
-          </div>
+      <div class="col s12">
+        <div class="social-media">
+          <p>Copyright by AwesomePossum, 2019</p>
+          <p>Share the <i class="fas fa-heart heart-logo"></i> :
+            <a href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank"><i
+                class="fab fa-facebook-square social-media-logos"></i></a>
+            <a
+              href="http://twitter.com/share?text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3"><i
+                class="fab fa-twitter social-media-logos"></i></a>
+            <a href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i
+                class="fab fa-pinterest social-media-logos"></i></a>
+            <a href="http://www.tumblr.com/share/link?url=[URL]&amp;name=[title]&amp;description=[content]"><i
+                class="fab fa-tumblr social-media-logos"></i></a>
+          </p>
         </div>
       </div>
+    </div>
   </footer>
 
   <!-- jquery CDN -->
