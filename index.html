@@ -1,192 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pupper-Pet Entertainment TV</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pupper-Pet Entertainment TV</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  <!-- Material Icons CDN -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Material Icons CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Firebase CDNs -->
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+    <!-- Firebase CDNs -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
 
-  <!-- fontAwesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <!-- fontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
-  <!-- Our styling -->
-  <link rel="stylesheet" href="assets/style.css">
+    <!-- Our styling -->
+    <link rel="stylesheet" href="assets/style.css">
 
-  <!-- Demo illustration of the puppy is from: https://unsplash.com/photos/qO-PIF84Vxg -->
-  <!-- Background bokeh image is from: https://www.pexels.com/photo/blur-blurred-bokeh-colors-938967/ -->
+    <!-- Demo illustration of the puppy is from: https://unsplash.com/photos/qO-PIF84Vxg -->
+    <!-- Background bokeh image is from: https://www.pexels.com/photo/blur-blurred-bokeh-colors-938967/ -->
 
-</head>
+  </head>
 
-<body>
-  <nav>
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">login</a></li>
-      <li class="divider"></li>
-      <li><a href="#!">sign up</a></li>
-    </ul>
-    <div class="nav-wrapper purple">
-      <div class="container">
-        <a href="#" class="brand-logo">Pupper</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i
-                class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-  <div id="container" class="container">
-    <div class="row content">
-      <div class="col s12 l6" id="content-text">
-        <h1>Welcome to Pupper!</h1>
-        <hr class="divider-line">
-        <p id="slogan">The Ultimate Pet Entertainment TV</p>
-        <a href="#carousel" class="waves-effect waves-light btn-large watch-button"><i class="fas fa-paw"></i> Watch the
-          Demo!</a>
-      </div>
-      <div class="col s12 l6">
-        <div class="card-image">
-          <img src="assets/images/pupper.png" class="circle responsive-image" id="illustration-main"
-            alt="image of a puppy!">
+  <body>
+    <nav>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">login</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">sign up</a></li>
+      </ul>
+      <div class="nav-wrapper purple">
+        <div class="container">
+          <a href="#" class="brand-logo">Pupper</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i
+                  class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
         </div>
       </div>
-      <div class="row">
-        <div class="col s12">
-          <div><a href="#about-us"><i id="scroll-icon" class="material-icons">expand_more</i></a></div>
+    </nav>
+
+
+    <div id="container" class="container">
+      <div class="row content">
+        <div class="col s12 l6" id="content-text">
+          <h1>Welcome to Pupper!</h1>
+          <hr class="divider-line">
+          <p id="slogan">The Ultimate Pet Entertainment TV</p>
+          <a href="#carousel" class="waves-effect waves-light btn-large watch-button"><i class="fas fa-paw"></i> Watch
+            the
+            Demo!</a>
         </div>
-      </div>
-    </div>
-  </div>
-  <div id="carousel">
-    <div class="container">
-      <input type="text" id="search-bar">
-      <div class="carousel">
-      </div>
-    </div>
-  </div>
-
-  <div class="container wrapper" id="about-us">
-    <div class="row row-image-left">
-      <div class="col s4 image">
-          <img class="circular--square" src="assets/images/cookiedrinkingsmoothie.jpg" class="responsive-img" alt="Pup">
-      </div>
-      <div class="col s8 paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit. </div>
-    </div>
-
-    <div class="row row-image-right">
-      <div class="col s8 paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit.</div>
-      <div class="col s4 image">
-          <img class="circular--square" src="assets/images/Tylie.jpg" class="responsive-img" alt="Pup">
-      </div>
-    </div>
-
-    <div class="row row-image-left">
-      <div class="col s4 image">
-          <img class="circular--square" src="assets/images/cookiedrinkingsmoothie.jpg" class="responsive-img" alt="Pup">
-      </div>
-      <div class="col s8 paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit.</div>
-    </div>
-
-    <div class="row row-image-right">
-      <div class="col s8 paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit.</div>
-      <div class="col s4 image">
-          <img class="circular--square" src="assets/images/Tylie.jpg" class="responsive-img" alt="Pup">
-      </div>
-    </div>
-
-  </div>
-  <div id="contact-us">
-    <div class="container wrapper">
-      <div class="row">
-        <div class="col s12 xl6 contact-text">
-          <p class="heading">Drop us a line!</p>
-          <p>We'd love to hear from you!</p>
-          <img src="assets/images/doggo-01.png" alt="dog illustration" class="circle responsive-image"
-            id="illustration-contact">
+        <div class="col s12 l6">
+          <div class="card-image">
+            <img src="assets/images/pupper.png" class="circle responsive-image" id="illustration-main"
+              alt="image of a puppy!">
+          </div>
         </div>
-        <div class="col s12 xl6">
-          <div class="row input-field">
-            <div>
-              <input placeholder="Jane" id="first_name" type="text" class="validate form">
-              <label for="first_name">First Name</label>
-            </div>
-            <div>
-              <input placeholder="Smith" id="last_name" type="text" class="validate form">
-              <label for="last_name">Last Name</label>
-            </div>
-            <div>
-              <input placeholder="janesmith@gmail.com" id="email" type="email" class="validate form">
-              <label for="email">E-mail</label>
-            </div>
-            <form action="post">
-              <textarea id="textarea1" class="materialize-textarea form"></textarea>
-              <label for="textarea1">Textarea</label>
-            </form>
-            <a class="waves-effect waves-light btn-large submit-button"><i class="fas fa-paw"></i> Submit </a>
+        <div class="row">
+          <div class="col s12">
+            <div><a href="#about-us"><i id="scroll-icon" class="material-icons">expand_more</i></a></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <footer id="tech-used">
-    <div class="container wrapper">
-      <div class="row">
-        <div class="col s12 logo-wrapper">
-          <p class="heading">Technologies Used:</p>
-          <hr class="divider-line">
-          <img class="logos" src="assets/images/html5-logo.png" alt="HTML5 logo">
-          <img class="logos" src="assets/images/css3-logo.png" alt="CSS3 logo">
-          <img class="logos" src="assets/images/js-logo.png" alt="JS logo">
-          <img class="logos"
-            src="assets/images/kisspng-firebase-cloud-messaging-google-developers-softwar-5ae1d9fda49409.7709198715247508456741.png"
-            alt="Firebase logo">
-          <img class="logos" src="assets/images/materialize-seeklogo.com-01.png" alt="materialize logo">
+    <div id="carousel">
+      <div class="container">
+        <input type="text" id="search-bar">
+        <div class="carousel">
         </div>
       </div>
     </div>
-    <div class="row social-media-div">
-      <div class="col s12">
-        <div class="social-media">
-          <p>Copyright by AwesomePossum, 2019</p>
-          <p>Share the <i class="fas fa-heart heart-logo"></i> :
-            <a href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank"><i
-                class="fab fa-facebook-square social-media-logos"></i></a>
-            <a
-              href="http://twitter.com/share?text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3"><i
-                class="fab fa-twitter social-media-logos"></i></a>
-            <a href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i
-                class="fab fa-pinterest social-media-logos"></i></a>
-            <a href="http://www.tumblr.com/share/link?url=[URL]&amp;name=[title]&amp;description=[content]"><i
-                class="fab fa-tumblr social-media-logos"></i></a>
-          </p>
+
+    <div class="container wrapper" id="about-us">
+      <div class="row row-image-left">
+        <div class="col s4 image">
+          <div id="f1_container">
+            <div id="f1_card" class="shadow">
+              <div class="front face">
+                <img class="circular--square" src="assets/images/West.png" class="responsive-img" alt="Pup">
+              </div>
+              <div class="back face center">
+                <img class="circular--square" src="assets/images/West.png" class="responsive-img" alt="Pup">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s8 paragraph">
+          <h1>Nico & West</h1>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit duis
+          tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit.
         </div>
       </div>
+
+      <div class="row row-image-right">
+        <div class="col s8 paragraph">
+          <h1>Yag & Cookie</h1>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit duis
+          tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit.
+        </div>
+        <div class="col s4 image">
+          <div id="f1_container">
+            <div id="f1_card" class="shadow">
+              <div class="front face">
+                <img class="circular--square" src="assets/images/cookiedrinkingsmoothie-cropped.jpg"
+                  class="responsive-img" alt="Pup">
+              </div>
+              <div class="back face center">
+                <img class="circular--square" src="assets/images/cookiedrinkingsmoothie-cropped.jpg"
+                  class="responsive-img" alt="Pup">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row row-image-left">
+          <div class="col s4 image">
+            <div id="f1_container">
+              <div id="f1_card" class="shadow">
+                <div class="front face">
+                  <img class="circular--square" src="assets/images/athena-cropped.jpg" class="responsive-img" alt="Pup">
+                </div>
+                <div class="back face center">
+                  <img class="circular--square" src="assets/images/athena-cropped.jpg" class="responsive-img" alt="Pup">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s8 paragraph">
+            <h1>Miguel & Athena</h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit
+            duis tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit.
+          </div>
+        </div>
+
+        <div class="row row-image-right">
+          <div class="col s8 paragraph">
+            <h1>Steph & Tylie</h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Sed risus pretium quam vulputate dignissim suspendisse in. Consectetur adipiscing elit
+            duis tristique sollicitudin nibh sit amet. Diam sit amet nisl suscipit.
+          </div>
+          <div class="col s4 image">
+            <div id="f1_container">
+              <div id="f1_card" class="shadow">
+                <div class="front face">
+                  <img class="circular--square" src="assets/images/tylie-cropped.png" class="responsive-img" alt="Pup">
+                </div>
+                <div class="back face center">
+                  <img class="circular--square" src="assets/images/IMG_9321 (1).jpg" class="responsive-img" alt="Pup">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-  </footer>
 
-  <!-- jquery CDN -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <div id="contact-us">
+          <div class="container wrapper">
+            <div class="row">
+              <div class="col s12 xl6 contact-text">
+                <p class="heading">Drop us a line!</p>
+                <p>We'd love to hear from you!</p>
+                <img src="assets/images/doggo-01.png" alt="dog illustration" class="circle responsive-image"
+                  id="illustration-contact">
+              </div>
+              <div class="col s12 xl6">
+                <div class="row input-field">
+                  <div>
+                    <input placeholder="Jane" id="first_name" type="text" class="validate form">
+                    <label for="first_name">First Name</label>
+                  </div>
+                  <div>
+                    <input placeholder="Smith" id="last_name" type="text" class="validate form">
+                    <label for="last_name">Last Name</label>
+                  </div>
+                  <div>
+                    <input placeholder="janesmith@gmail.com" id="email" type="email" class="validate form">
+                    <label for="email">E-mail</label>
+                  </div>
+                  <form action="post">
+                    <textarea id="textarea1" class="materialize-textarea form"></textarea>
+                    <label for="textarea1">Textarea</label>
+                  </form>
+                  <a class="waves-effect waves-light btn-large submit-button"><i class="fas fa-paw"></i> Submit </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer id="tech-used">
+          <div class="container wrapper">
+            <div class="row">
+              <div class="col s12 logo-wrapper">
+                <p class="heading">Technologies Used:</p>
+                <hr class="divider-line">
+                <img class="logos" src="assets/images/html5-logo.png" alt="HTML5 logo">
+                <img class="logos" src="assets/images/css3-logo.png" alt="CSS3 logo">
+                <img class="logos" src="assets/images/js-logo.png" alt="JS logo">
+                <img class="logos"
+                  src="assets/images/kisspng-firebase-cloud-messaging-google-developers-softwar-5ae1d9fda49409.7709198715247508456741.png"
+                  alt="Firebase logo">
+                <img class="logos" src="assets/images/materialize-seeklogo.com-01.png" alt="materialize logo">
+              </div>
+            </div>
+          </div>
+          <div class="row social-media-div">
+            <div class="col s12">
+              <div class="social-media">
+                <p>Copyright by AwesomePossum, 2019</p>
+                <p>Share the <i class="fas fa-heart heart-logo"></i> :
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank"><i
+                      class="fab fa-facebook-square social-media-logos"></i></a>
+                  <a
+                    href="http://twitter.com/share?text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3"><i
+                      class="fab fa-twitter social-media-logos"></i></a>
+                  <a href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i
+                      class="fab fa-pinterest social-media-logos"></i></a>
+                  <a href="http://www.tumblr.com/share/link?url=[URL]&amp;name=[title]&amp;description=[content]"><i
+                      class="fab fa-tumblr social-media-logos"></i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- jquery CDN -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-  <!-- our CDN -->
-  <script src="assets/logic.js"></script>
-</body>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!-- our CDN -->
+        <script src="assets/logic.js"></script>
+  </body>
 
 </html>
