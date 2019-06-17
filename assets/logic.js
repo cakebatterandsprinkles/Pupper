@@ -44,4 +44,10 @@
     
     // testing the database
     console.log(newUser.name);
+
   });
+
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+      
