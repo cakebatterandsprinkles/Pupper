@@ -218,6 +218,11 @@ body {
 .social-media {
     display:flex;
     justify-content: space-evenly;
+    background-color:rgba(255, 192, 203, 0.555);
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:52px;
+    margin-bottom:0;
 }
 
 .social-media a {
@@ -227,14 +232,6 @@ body {
 .social-media-logos, .heart-logo {
     font-size:1.25rem;
     margin-left:5px;
-}
-
-.social-media-div {
-    background-color:rgba(255, 192, 203, 0.555);
-    position:absolute;
-    left:0; right:0; bottom:0;
-    height:52px;
-    margin-bottom:0;
 }
 
 .heart-logo {
