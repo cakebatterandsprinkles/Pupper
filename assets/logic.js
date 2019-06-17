@@ -40,98 +40,8 @@ var loginRef = userRef.child('User Login Info');
 var userPreferencesRef = userRef.child('User Preferences');
 
 
-//   creating directives for the submit button for members
-$("#sign-up-btn").on("click", function (event) {
-  
-});
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$( document ).ready(function(){
-  console.log("ready")
-  //adds dropdown for the account membership
-  $(".dropdown-trigger").dropdown();
-  //makes carousel functional
-  $('.carousel').carousel();
-});
-  
   //   creating directives for the submit button for members
-  $("#add-new-user-btn").on("click", function(event) {
+  $("#login-new-btn").on("click", function(event) {
 
     // prevent page reload upon form submission
     event.preventDefault();
@@ -202,5 +112,3 @@ $( document ).ready(function(){
     
     // testing the database
     console.log(newUser.name);
-  });
-
