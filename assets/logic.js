@@ -41,7 +41,97 @@ var userPreferencesRef = userRef.child('User Preferences');
 
 
 //   creating directives for the submit button for members
-$("#sign-up-btn").on("click"), function (event) {
+$("#sign-up-btn").on("click", function (event) {
+  
+});
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$( document ).ready(function(){
+  console.log("ready")
+  //adds dropdown for the account membership
+  $(".dropdown-trigger").dropdown();
+  //makes carousel functional
+  $('.carousel').carousel();
+});
+  
+  //   creating directives for the submit button for members
+  $("#add-new-user-btn").on("click", function(event) {
 
     // prevent page reload upon form submission
     event.preventDefault();
@@ -106,5 +196,11 @@ $("#sign-up-btn").on("click"), function (event) {
         $("#new-password-input").val("");
         $("#new-password-confirm-input").val("");
     }
-    }
+
+    // This puts the user inputs into the database
+    database.ref().push(newUser);
+    
+    // testing the database
+    console.log(newUser.name);
+  });
 
