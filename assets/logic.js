@@ -12,3 +12,102 @@
   firebase.initializeApp(firebaseConfig);
 
   var database = firebase.database();
+
+  // $(window).on('scroll', function(){
+  //   if($(window).scrollTop()>=95 && !$('nav').hasClass('fixed')){
+  //       $('nav').addClass('fixed'); 
+  //   }
+  //   else if($(window).scrollTop()<95 && $('nav').hasClass('fixed')){
+  //      $('nav').removeClass('fixed') 
+  //   }
+// });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//adds dropdown for the account membership
+
+$( document ).ready(function(){
+  console.log("ready")
+  $(".dropdown-trigger").dropdown();
+})
+  
+
+
+
+
+
+
+  
