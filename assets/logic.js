@@ -97,6 +97,7 @@ var userPreferencesRef = userRef.child('User Preferences');
     } 
     // if the password does not match the confirm password input then then we should show the user a text that says that passwords did not match
     else {
+
         // text as a variable
         passwordError = $("<div>");
         passwordError.addClass(".passwords-dont-match");
@@ -112,3 +113,5 @@ var userPreferencesRef = userRef.child('User Preferences');
     
     // testing the database
     console.log(newUser.name);
+
+})
