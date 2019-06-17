@@ -8,15 +8,16 @@
     messagingSenderId: "164074437731",
     appId: "1:164074437731:web:e8c78364f54f9a84"
   };
+
   // Initializegit  Firebase
   firebase.initializeApp(firebaseConfig);
 
-//   declaration of firebase 
+  // declaration of firebase 
   var database = firebase.database();
   console.log(database);
 
-//   creating directives for the submit button for members
-$("#add-new-user-btn").on("click"), function(event) {
+  //   creating directives for the submit button for members
+  $("#add-new-user-btn").on("click"), function(event) {
 
     // prevent page reload upon form submission
     event.preventDefault();
@@ -36,7 +37,6 @@ $("#add-new-user-btn").on("click"), function(event) {
         email: newEmail,
         password: newPassword,
         passwordConfirm: newConfirmPassword,
-
     };
 
     // This puts the user inputs into the database
@@ -44,10 +44,4 @@ $("#add-new-user-btn").on("click"), function(event) {
     
     // testing the database
     console.log(newUser.name);
-
 }
-
-    
-    
-        
-
