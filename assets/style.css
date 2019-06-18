@@ -18,6 +18,16 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.slick-carousel {
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+
+.video iframe {
+    width: 100%;
+}
+
+
 #container,
 .wrapper {
     margin-top: 1.25rem;
