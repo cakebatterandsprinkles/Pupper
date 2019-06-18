@@ -100,6 +100,23 @@ $("#login-new-btn").on("click", function (event) {
 
     confirmPassword = $("#new-confirm-password-input").val().trim();
 
+    // now adding a function to ensure the user is adding a real email
+    function IsEmail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!regex.test(email)) {
+          return false;
+        }else{
+          return true;
+        }
+      };
+
+    if (IsEmail(email) == false) {
+        $("#invalid_email").show();
+        return false;
+    };
+
+    
+
     // add password confirmation with else/if
 
     if (password == confirmPassword) {
