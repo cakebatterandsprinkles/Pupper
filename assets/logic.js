@@ -1,12 +1,57 @@
-$(document).ready(function(){
+$(document).ready(function () {
     console.log("ready");
     // adds dropdown for the account membership
     $(".dropdown-trigger").dropdown();
     // makes carousel functional
-    $(".carousel").carousel();
-})
+    gapi.load("client:youtube", function () {
+        gapi.client.setApiKey("AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc");
+        gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest");
+    });
+
+    $(".slick-carousel").slick({
+        autoplay: true
+    });
 
 
+    $("#search-bar").on("submit", function (ev) {
+        ev.preventDefault();
+
+        let searchTerm = $("#search").val();
+
+        $(".slick-carousel").slick("unslick");
+        $(".slick-carousel").empty();
+
+        gapi.client.youtube.search.list({
+                "part": "snippet",
+                "maxResults": 5,
+                "q": searchTerm
+            })
+            .then(function (response) {
+                    console.log("Response", response);
+
+
+                    response.result.items.forEach(function (item) {
+                        console.log(item);
+                        let videoId = item.id.videoId;
+                        let iframe = $("<iframe>").attr("width", "560").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + videoId)
+                        .attr("allowfullscreen", "true");
+                        let video = $("<div>").addClass("video").append(iframe);
+                        $(".slick-carousel").append(video);
+                    });
+
+                    $(".slick-carousel").slick({
+                        autoplay: true
+                    });
+                
+
+                },
+                function (err) {
+                    console.error("Execute error", err);
+                });
+
+        return false;
+    });
+});
 
 
 // Your web app's Firebase configuration
@@ -40,8 +85,8 @@ var loginRef = userRef.child('User Login Info');
 var userPreferencesRef = userRef.child('User Preferences');
 
 
-  //   creating directives for the submit button for members
-  $("#login-new-btn").on("click", function(event) {
+//   creating directives for the submit button for members
+$("#login-new-btn").on("click", function (event) {
 
     // prevent page reload upon form submission
     event.preventDefault();
@@ -65,7 +110,7 @@ var userPreferencesRef = userRef.child('User Preferences');
             name: name,
             email: email,
             password: password,
-        
+
         };
 
         // push the confirmed user into a login storage and into the database
@@ -78,7 +123,7 @@ var userPreferencesRef = userRef.child('User Preferences');
         console.log(newUser.password);
 
         // create user with email and password
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
             // Handle errors here
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -95,10 +140,10 @@ var userPreferencesRef = userRef.child('User Preferences');
         $("#new-password-confirm-input").val("");
 
         // TODO: create div for modal that will welcome the new user into the page and show all the different things they can do as members
-        
 
-        
-    } 
+
+
+    }
     // if the password does not match the confirm password input then then we should show the user a text that says that passwords did not match
     else {
         // text as a variable
@@ -113,13 +158,13 @@ var userPreferencesRef = userRef.child('User Preferences');
 
     // This puts the user inputs into the database
     database.ref().push(newUser);
-    
+
     // testing the database
     console.log(newUser.name);
 });
 
 // button to sign in existing users
-$("#login-returning-btn").on("click", function(event){
+$("#login-returning-btn").on("click", function (event) {
 
     event.preventDefault();
 
@@ -131,16 +176,17 @@ $("#login-returning-btn").on("click", function(event){
     const auth = firebase.auth();
 
     // promise that runs the authorization
-    auth.SignInWithEmailAndPassword(email, pass).catch(function(error) {
+    auth.SignInWithEmailAndPassword(email, pass).catch(function (error) {
 
         // handle errors in authentication
         errorCode = error.code;
         errorMessage = error.message;
-        
+
         // console log for now but needs to be dynamically inserted into html form
         console.log(errorCode);
         console.log(errorMessage);
     })
+
 })
 
 // Function that will hide the password with toggle
@@ -169,5 +215,7 @@ $("#show-password").on("click", function(event){
     // test to make sure hiddenPassword is grabbing the right input
     console.log(hiddenPassword);
 })
+
+
 
 
