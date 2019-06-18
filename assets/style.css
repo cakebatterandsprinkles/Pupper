@@ -25,14 +25,12 @@ nav {
 }
 
 .slick-carousel {
-    padding-top: 20px;
-    padding-bottom: 80px;
+    padding-top: 50px;
 }
 
 .video iframe {
-    width: 100%;
+    width: 70%;
 }
-
 
 #container,
 .wrapper {
@@ -78,17 +76,21 @@ nav {
     color: white;
 }
 
-#youtube-search:hover {
+#youtube-search:hover, #youtube-search:active {
     background-color: white;
 }
 
 #search-bar {
     margin: auto;
-    max-width: 80%;
+    max-width: 90%;
 }
 
 #carousel-main {
     margin-top: 1.25rem;
+}
+
+#video-div {
+    height:600px;
 }
 
 .row-image-left {
