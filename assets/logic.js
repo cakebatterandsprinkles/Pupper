@@ -186,4 +186,36 @@ $("#login-returning-btn").on("click", function (event) {
         console.log(errorCode);
         console.log(errorMessage);
     })
+
 })
+
+// Function that will hide the password with toggle
+$("#show-password").on("click", function(event){
+
+    // prevent page refresh upon form submission
+    event.preventDefault();
+
+    function showPassword() {
+        // set the variable hooking the password class
+        let hiddenPassword = $(".password").val().trim();
+
+        // if else statement causing the visibility toggle
+        if (hiddenPassword.type === "password") {
+            hiddenPassword.type = "text";
+        }
+
+        else {
+            hiddenPassword.type = "password";
+        }
+
+    };
+
+    showPassword();
+    
+    // test to make sure hiddenPassword is grabbing the right input
+    console.log(hiddenPassword);
+})
+
+
+
+
