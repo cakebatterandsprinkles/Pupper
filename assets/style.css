@@ -14,6 +14,11 @@ body {
     margin-top:90px;
 }
 
+nav {
+    background-color: transparent;
+    box-shadow: none;
+}
+
 #contact-us,
 #tech-used {
     background-color: rgb(255, 255, 255);
