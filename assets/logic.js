@@ -95,9 +95,6 @@ $(document).ready(function () {
     });
 });
 
-<<<<<<< HEAD
-// Firebase configuration
-=======
 function showFavorites() {
     $("#favorite-videos").empty();
 
@@ -140,7 +137,6 @@ function removeFavorite(url) {
 
 
 // Your web app's Firebase configuration
->>>>>>> master
 var firebaseConfig = {
     apiKey: "AIzaSyAcONzsJOrUW2xJRf1LVc0QUJoRFdiK0xM",
     authDomain: "pupper-80829.firebaseapp.com",
