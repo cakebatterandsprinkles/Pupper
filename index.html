@@ -179,7 +179,7 @@
       </nav>
       <div class="slick-carousel">
         <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI" frameborder="0"
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
@@ -290,22 +290,22 @@
         <div class="col s12 xl6">
           <div class="row input-field">
             <div>
-              <input placeholder="Jane" id="first_name" type="text" class="validate form">
+              <input placeholder="Jane" id="first_name" name="firstname" type="text" class="validate form">
               <label for="first_name">First Name</label>
             </div>
             <div>
-              <input placeholder="Smith" id="last_name" type="text" class="validate form">
+              <input placeholder="Smith" id="last_name" name="lastname" type="text" class="validate form">
               <label for="last_name">Last Name</label>
             </div>
             <div>
-              <input placeholder="janesmith@gmail.com" id="email" type="email" class="validate form">
+              <input placeholder="janesmith@gmail.com" name="email" id="form_email" type="email" class="validate form">
               <label for="email">E-mail</label>
             </div>
-            <form action="post">
-              <textarea id="textarea1" class="materialize-textarea form"></textarea>
+            <div>
+              <textarea id="textarea1" name="textarea1" class="materialize-textarea form"></textarea>
               <label for="textarea1">Textarea</label>
-            </form>
-            <a class="waves-effect waves-light btn-large submit-button"><i class="fas fa-paw"></i> Submit </a>
+            </div>
+            <a id="form-submit-button" class="waves-effect waves-light btn-large submit-button"><i class="fas fa-paw"></i> Submit </a>
           </div>
         </div>
       </div>
@@ -356,9 +356,6 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-  <!-- Youtube API-->
-  <script src="https://apis.google.com/js/client.js"></script>
 
   <!-- our CDN -->
   <script src="assets/logic.js"></script>
