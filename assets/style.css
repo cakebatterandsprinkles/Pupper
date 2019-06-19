@@ -388,28 +388,23 @@ h4 {
 }
 
 .accountCard {
-
     width: 100%;
     background-color: rgb(86, 121, 175);
     position: relative;
     padding: 0%;
-
-
 }
 
 .modal {
-    background-color: pink;
+    background-color: white;
     color: black;
-    border-radius: 1%;
-    
+    overflow: visible;
+    height: 500px;
+    padding:1.25rem;
 }
+
 .modal-content {
     color:black;
-    line-height: 0%;
-    margin:0%;
-    
     border-radius: 10%;
-    position: relative;
 }
 
 .validate {

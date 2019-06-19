@@ -63,9 +63,11 @@ $(document).ready(function () {
 
         $.get(queryUrl).then(function (data) {
             console.log(data);
-            $("#illustration-main").empty();
+            $("#card-image").empty();
             let gif = $("<img>")
-            .attr("src", data.data[0].images.original_still.url);
+            .attr("src", data.data[0].images.original_still.url)
+            .addClass(waves-effect, waves-light, circle, responsive-image);
+
     });
 
 
