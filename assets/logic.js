@@ -71,6 +71,7 @@ $(document).ready(function () {
 
         $(".slick-carousel").slick("unslick");
         $(".slick-carousel").empty();
+        // $("#search").empty();
 
         $.get("https://content.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=" + searchTerm + "&type=video&key=AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc")
             .then(function (response) {
@@ -117,8 +118,16 @@ function showFavorites() {
                 .on("click", function () {
                     removeFavorite(item);
                 });
+            
+            let playlistButton = $("<button>")
+            .addClass("playlist-button waves-effect waves-light btn-sm")
+            .html('<i class="fas fa-play-circle"></i> Add to playlist')
+            .on("click", function () {
+                removeFavorite(item);
+                addPlaylist(item);
+            });
 
-            let thumbnail = $("<div>").addClass("thumbnail").append(iframe).append(removeButton);
+            let thumbnail = $("<div>").addClass("thumbnail").append(iframe).append(removeButton).append(playlistButton);
             $("#favorite-videos").append(thumbnail);
         });
     }
@@ -137,6 +146,10 @@ function removeFavorite(url) {
     showFavorites();
 }
 
+function addPlaylist (url) {
+    
+
+}
 
 
 

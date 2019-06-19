@@ -38,7 +38,7 @@
 
   <!-- Dropdown from navigation bar -->
   <nav class="navStick">
-    
+
     <!-- -----------PASSWORD INPUT FIELD------------------------------------------------------------------------------------------------------------------------------------ -->
 
     <!-- ASSUMING THAT THE FORM WILL GO HERE -MIGUEL -->
@@ -64,14 +64,13 @@
           <li><a href="#about-us">About Us</a></li>
           <li><a href="#contact-us">Contact</a></li>
           <!-- Modal Trigger -->
-          
-              <li>
-                <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4"
-                  href="#modal2">Login</a>
-              </li>
+
           <li>
-            <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1"
-              href="#modal1"><i class="material-icons">account_box</i></a>
+            <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4" href="#modal2">Login</a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1" href="#modal1"><i
+                class="material-icons">account_box</i></a>
           </li>
       </div>
     </div>
@@ -87,24 +86,24 @@
           <p>
             <p>Pet type</p>
             <label>
-              <input type="checkbox"/>
+              <input type="checkbox" />
               <span>Dog</span>
             </label>
           </p>
           <label>
-            <input type="checkbox"/>
+            <input type="checkbox" />
             <span>Cat</span>
           </label>
           </p>
           <p>
             <label>
-              <input type="checkbox"/>
+              <input type="checkbox" />
               <span>Bird</span>
             </label>
           </p>
           <p>
             <label>
-              <input type="checkbox"/>
+              <input type="checkbox" />
               <span>Other</span>
             </label>
           </p>
@@ -131,8 +130,8 @@
         <h4 class=>Enter Login Information</h4>
         <label class="pink lighten-4">Enter Email</label>
         <input placeholder="Email" type="text" class="validate">
-        
-        
+
+
         <p>
           <label class="pink lighten-4">Enter Password</label>
           <input type="password" value="password" class="password" id="password-confirm-input">
@@ -210,16 +209,45 @@
       </div>
     </div>
   </div>
-  <div id="carousel-main">
-    <div class="container content wrapper" id="video-div">
+
+  <!-- Main div -->
+  <div id="container" class="container">
+    <div class="row content">
+      <div class="col s12 l6" id="content-text">
+        <h1>Hello <span id="username"></span><span id="petname"></span>!</h1>
+        <hr class="divider-line">
+        <p id="slogan">Welcome to your personalized Pet TV!</p>
+      </div>
+      <!-- MAIN IMAGE -->
+      <div class="col s12 l6">
+        <div class="card-image">
+          <!-- Wave effect added onto image -->
+          <a class="waves-effect waves-light circle" href="#">
+            <img src="assets/images/pupper.png" class=" responsive-image" id="illustration-main" alt="Pupper logo">
+          </a>
+        </div>
+        <!-- MAIN IMAGE -->
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div><a href="#about-us"><i id="scroll-icon" class="material-icons">expand_more</i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container wrapper" id="browse">
+    <h3>Browse Videos</h3>
+    <hr class="divider-line">
+    <div id="carousel-main">
       <nav>
         <!-- added light blue to the searchbar -->
         <div class="nav-wrapper">
           <form id="search-bar">
             <!-- added light purple to the searchbar -->
-            <div class="input-field #f06292 pink lighten-2" id="youtube-search">
+            <div class="input-field pink accent-2 z-depth-3" id="youtube-search">
               <input id="search" type="search" required>
-              <label class="label-icon" for="search"><i class="material-icons ">search</i></label>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
           </form>
@@ -227,11 +255,24 @@
       </nav>
       <div class="slick-carousel">
         <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI" frameborder="0"
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
+      <a class="waves-effect waves-light btn-large favorite-button"><i class="fas fa-heart"></i> Add to Favorites </a>
     </div>
+  </div>
+
+  <div class="container wrapper" id="favorites">
+    <h3>Favorite Videos</h3>
+    <hr class="divider-line">
+    <div id="favorite-videos">
+    </div>
+  </div>
+  <div class="container wrapper" id="playlist">
+    <h3>Playlist</h3>
+    <hr class="divider-line">
   </div>
 
   <div class="container wrapper" id="about-us">
@@ -346,7 +387,7 @@
               <label for="last_name">Last Name</label>
             </div>
             <div>
-              <input placeholder="janesmith@gmail.com"  type="email" class="validate form">
+              <input placeholder="janesmith@gmail.com" type="email" class="validate form">
               <label for="email">E-mail</label>
             </div>
             <form action="post">
