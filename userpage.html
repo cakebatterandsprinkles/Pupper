@@ -82,6 +82,31 @@
     <hr class="divider-line">
 
 
+  <div id="carousel-main">
+        <nav>
+          <!-- added light blue to the searchbar -->
+          <div class="nav-wrapper">
+            <form id="search-bar">
+              <!-- added light purple to the searchbar -->
+              <div class="input-field pink accent-2 z-depth-3" id="youtube-search">
+                <input id="search" type="search" required>
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </nav>
+        <div class="slick-carousel">
+          <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <a class="waves-effect waves-light btn-large favorite-button"><i class="fas fa-heart"></i> Add to Favorites </a>
+      </div>
+  
+
   </div>
   <div class="container wrapper" id="playlist">
     <h3>Your Playlist</h3>
@@ -92,8 +117,9 @@
   <div class="container wrapper" id="favorites">
     <h3>Favorite Videos</h3>
     <hr class="divider-line">
+    <div id="favorite-videos">
 
-
+    </div>
   </div>
   <div class="container wrapper" id="recommended">
     <h3>Recommended Videos</h3>

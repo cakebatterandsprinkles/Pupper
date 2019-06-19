@@ -1,16 +1,38 @@
 let prevArrow = '<i class="fas fa-chevron-left"></i>';
 let nextArrow = '<i class="fas fa-chevron-right"></i>';
 
+const userId = 'test';
+
+let favoritesList = [];
+
 $(document).ready(function () {
     console.log("ready");
+
     // adds dropdown for the account membership
     $(".dropdown-trigger").dropdown();
     // makes carousel functional
 
     $(".slick-carousel").slick({
-        autoplay: true,
         arrows: false
-        
+    });
+
+    showFavorites();
+
+    $(".favorite-button").on("click", function () {
+        const currentVideoUrl = $(".slick-current iframe").attr("src");
+
+        favoritesList.push(currentVideoUrl);
+
+        database.ref("favorites/" + userId).set(favoritesList);
+
+        showFavorites();
+    });
+
+    database.ref("favorites/" + userId).on("value", function (snapshot) {
+        if (snapshot.val() !== null) {
+            favoritesList = snapshot.val();
+            showFavorites();
+        }
     });
 
 
@@ -24,7 +46,7 @@ $(document).ready(function () {
         $(".slick-carousel").slick("unslick");
         $(".slick-carousel").empty();
 
-        $.get("https://content.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=" + searchTerm + "&key=AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc")
+        $.get("https://content.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=" + searchTerm + "&type=video&key=AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc")
             .then(function (response) {
                     console.log("Response", response);
 
@@ -32,14 +54,13 @@ $(document).ready(function () {
                         console.log(item);
                         let videoId = item.id.videoId;
                         let iframe = $("<iframe>").attr("width", "560").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + videoId)
-                        .attr("frameborder", "0")
+                            .attr("frameborder", "0")
                             .attr("allowfullscreen", "true");
                         let video = $("<div>").addClass("video").append(iframe);
                         $(".slick-carousel").append(video);
                     });
 
                     $(".slick-carousel").slick({
-                        autoplay: true,
                         arrows: true,
                         prevArrow: prevArrow,
                         nextArrow: nextArrow
@@ -51,6 +72,46 @@ $(document).ready(function () {
         return false;
     });
 });
+
+function showFavorites() {
+    $("#favorite-videos").empty();
+
+    if (favoritesList !== null) {
+        favoritesList.forEach(function (item) {
+            let iframe = $("<iframe>")
+                .attr("width", "320")
+                .attr("height", "180")
+                .attr("src", item)
+                .attr("frameborder", "0")
+                .attr("allowfullscreen", "true");
+
+            let removeButton = $("<button>")
+                .addClass("remove-button waves-effect waves-light btn-sm")
+                .html('<i class="fas fa-trash"></i> Remove')
+                .on("click", function () {
+                    removeFavorite(item);
+                });
+
+            let thumbnail = $("<div>").addClass("thumbnail").append(iframe).append(removeButton);
+            $("#favorite-videos").append(thumbnail);
+        });
+    }
+}
+
+function removeFavorite(url) {
+
+    if (favoritesList !== null) {
+        favoritesList = favoritesList.filter(function (item) {
+            return item !== url;
+        });
+
+        database.ref("favorites/" + userId).set(favoritesList);
+    }
+
+    showFavorites();
+}
+
+
 
 
 // Your web app's Firebase configuration
