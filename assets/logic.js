@@ -3,6 +3,7 @@ $(document).ready(function () {
     console.log("ready");
     // adds dropdown for the account membership
     $(".dropdown-trigger").dropdown();
+    $(".sidenav").sidenav();
     // makes carousel functional
     gapi.load("client:youtube", function () {
         gapi.client.setApiKey("AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc");
@@ -93,13 +94,15 @@ $("#login-new-btn").on("click", function (event) {
     event.preventDefault();
 
     // emptied values for new user sign-up
-    name = $("#new-user-input").val().trim();
+    name = $("#username").val().trim();
 
-    email = $("#new-email-input").val().trim();
+    email = $("#email").val().trim();
 
-    password = $("#new-password-input").val().trim();
+    password = $("#password-confirm-input").val().trim();
 
-    confirmPassword = $("#new-confirm-password-input").val().trim();
+    confirmPassword = $("#returning-password-input").val().trim();
+
+    // PET NAME AND PET TYPE FROM CHECK BOX NEED TO BE ADDED
 
     // now adding a function to ensure the user is adding a real email
     function IsEmail(email) {
