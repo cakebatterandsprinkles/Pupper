@@ -158,6 +158,10 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 console.log(database);
 
+// declare firebase auth
+var auth = firebase.auth();
+console.log(auth);
+
 var feedback = database.ref("/feedback");
 
 //creation of reference that holds users and their passwords
@@ -165,28 +169,30 @@ var storage = firebase.storage();
 console.log(storage);
 
 // create a storage reference from the storage service
-var userRef = storage.ref();
+var userRef = storage.ref("/user-ref");
 
 //   create a child reference to hold user login info
-var loginRef = userRef.child('User Login Info');
+var loginRef = userRef.child('/user-Login-Info');
 console.log(loginRef);
 
 // create a child reference to hold user preferences such as videos, images, ect...
-var userPreferencesRef = userRef.child('User Preferences');
+var userPreferencesRef = userRef.child('/user-Preferences');
 console.log(userPreferencesRef);
 
 // create a child reference for userPreferencesRef that will hold the videos
-var videos = userPreferencesRef.child('Videos');
+var videos = userPreferencesRef.child('/videos');
 console.log(videos);
 
 // create a child reference for the videos reference that holds user made videos
-var userMade = videos.child('User Made');
+var userMade = videos.child('/user-Made');
 console.log(userMade);
 
 // create a child reference for the videos reference that holds user favorite videos
-var favorites = videos.child('Favorites');
+var favorites = videos.child('/favorites');
 console.log(favorites);
 
+// authentication state observer and get user data
+// firebase.auth().onAuthStateChanged(function(newUser))
 
 
 
@@ -198,13 +204,17 @@ $("#login-new-btn").on("click", function (event) {
     event.preventDefault();
 
     // emptied values for new user sign-up
-    name = $("#username").val().trim();
+    name = $("#new-name-input").val().trim();
 
-    email = $("#email").val().trim();
+    petName = $("#pet-name-input").val().trim();
 
-    password = $("#password-confirm-input").val().trim();
+    // petType = $()
 
-    confirmPassword = $("#returning-password-input").val().trim();
+    email = $("#new-email-input").val().trim();
+
+    password = $("#new-password-input").val().trim();
+
+    confirmPassword = $("#new-password-confirm-input").val().trim();
 
     // PET NAME AND PET TYPE FROM CHECK BOX NEED TO BE ADDED
 
@@ -233,22 +243,27 @@ $("#login-new-btn").on("click", function (event) {
         var newUser = {
 
             name: name,
+            pet: petName,
             email: email,
             password: password,
+            
 
         };
 
         // push the confirmed user into a login storage and into the database
         database.ref().push(newUser);
-        loginRef.push(newUser);
+
+        // TODO: FIX STORAGE PUSH 
+        loginRef.child(newUser);
 
         // console.log the pushed new user object
         console.log(newUser.name);
         console.log(newUser.email);
         console.log(newUser.password);
+        console.log(newUser.petName);
 
         // create user with email and password
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+        auth.createUserWithEmailAndPassword(newUser.email, newUser.password).catch(function (error) {
             // Handle errors here
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -260,6 +275,7 @@ $("#login-new-btn").on("click", function (event) {
 
         // clear out input forms
         $("#new-name-input").val("");
+        $("#pet-name-input").val("");
         $("#new-email-input").val("");
         $("#new-password-input").val("");
         $("#new-password-confirm-input").val("");
