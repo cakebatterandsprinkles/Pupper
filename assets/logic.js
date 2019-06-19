@@ -2,6 +2,7 @@ let prevArrow = '<i class="fas fa-chevron-left"></i>';
 let nextArrow = '<i class="fas fa-chevron-right"></i>';
 
 let favoritesList = [];
+let playlist = [];
 
 $(document).ready(function () {
     //creates a form on account and login
@@ -18,20 +19,51 @@ $(document).ready(function () {
         arrows: false
     });
 
+    let name = localStorage.getItem("name");
+    let petname = localStorage.getItem("petname");
+    let pettype = localStorage.getItem("pettype");
+
+    if (name !== null) {
+        $("#main-header").html('<h1>Hello ' + name + ' & ' + petname + '!</h1>');
+        $("#slogan").html("Welcome to your personalized Pet TV!");
+
+        let gifUrl = localStorage.getItem("petgif");
+
+        if (gifUrl !== null) {
+            $("#card-image").empty();
+            let gif = $("<img>")
+                .attr("src", gifUrl)
+                .addClass("responsive-image circle");
+            $("#card-image").append(gif);
+        } else {
+            getPetGif(pettype);
+        }
+    }
+
     $(".favorite-button").on("click", function () {
         const currentVideoUrl = $(".slick-current iframe").attr("src");
 
-        favoritesList.push(currentVideoUrl);
+        if (favoritesList.indexOf(currentVideoUrl) == -1) {
 
-        database.ref("favorites/" + userId).set(favoritesList);
+            favoritesList.push(currentVideoUrl);
 
-        showFavorites();
+            database.ref("favorites/").set(favoritesList);
+
+            showFavorites();
+        }
     });
 
-    database.ref("favorites/" + userId).on("value", function (snapshot) {
+    database.ref("favorites/").on("value", function (snapshot) {
         if (snapshot.val() !== null) {
             favoritesList = snapshot.val();
             showFavorites();
+        }
+    });
+
+    database.ref("playlist/").on("value", function (snapshot) {
+        if (snapshot.val() !== null) {
+            playlist = snapshot.val();
+            showPlaylist();
         }
     });
 
@@ -57,17 +89,6 @@ $(document).ready(function () {
         $("#form_email").val("");
         $("#textarea1").val("");
 
-        let queryUrl = "https://api.giphy.com/v1/gifs/search?q=" +
-        pettype +
-        "&api_key=wSCP998sGk4ILdpbjPhlS0EMr9227bNx&limit=10&lang=en";
-
-        $.get(queryUrl).then(function (data) {
-            console.log(data);
-            $("#card-image").empty();
-            let gif = $("<img>")
-            .attr("src", data.data[0].images.original_still.url)
-            .addClass(waves-effect, waves-light, circle, responsive-image);
-
     });
 
 
@@ -80,7 +101,7 @@ $(document).ready(function () {
 
         $(".slick-carousel").slick("unslick");
         $(".slick-carousel").empty();
-        // $("#search").empty();
+        $("#search").val("");
 
         $.get("https://content.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=" + searchTerm + "&type=video&key=AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc")
             .then(function (response) {
@@ -108,31 +129,57 @@ $(document).ready(function () {
         return false;
     });
 
-    $("#submit-info").on("click", function(event) {
+    $("#submit-info").on("click", function (event) {
         event.preventDefault();
-  
+
         var name = $("#name-input").val().trim();
         var petname = $("#petname-input").val().trim();
         var pettype = $("#pettype-input").val().trim();
-  
+
+        if (name.length === 0 || petname.length === 0 || pettype === 0) {
+            return;
+        }
+
         console.log(name);
         console.log(petname);
         console.log(pettype);
-  
-        $("#main-header").empty();
-        $("#main-header").html('<h1>Hello <span id="username-display"></span> + " & " + <span id="petname-display"></span>!</h1>');
+
+        $("#main-header").html('<h1>Hello ' + name + ' & ' + petname + '!</h1>');
         $("#slogan").html("Welcome to your personalized Pet TV!");
 
         localStorage.clear();
-  
+
         localStorage.setItem("name", name);
         localStorage.setItem("petname", petname);
         localStorage.setItem("pettype", pettype);
-      });
-  
-      $("#username-display").text(localStorage.getItem("name"));
-      $("#petname-display").text(localStorage.getItem("email"));
+
+        $('.modal').modal('close');
+
+        getPetGif(pettype);
+
+    });
 });
+
+function getPetGif(pettype) {
+    let queryUrl = "http://api.giphy.com/v1/gifs/search?q=" +
+        pettype.toLowerCase() +
+        "&api_key=rD1UAc0GsPoRiL1JMVl6T3mJGQdJ3SYU&limit=5";
+
+    $.get(queryUrl).then(function (data) {
+        console.log(data);
+
+        $("#card-image").empty();
+        let url = data.data[0].images.original.url;
+        let gif = $("<img>")
+            .attr("src", url)
+            .addClass("responsive-image circle");
+
+        $("#card-image").append(gif);
+
+        localStorage.setItem("petgif", url);
+    });
+
+}
 
 function showFavorites() {
     $("#favorite-videos").empty();
@@ -152,18 +199,50 @@ function showFavorites() {
                 .on("click", function () {
                     removeFavorite(item);
                 });
-            
+
             let playlistButton = $("<button>")
-            .addClass("playlist-button waves-effect waves-light btn-sm")
-            .html('<i class="fas fa-play-circle"></i> Add to playlist')
-            .on("click", function () {
-                removeFavorite(item);
-                addPlaylist(item);
-            });
+                .addClass("playlist-button waves-effect waves-light btn-sm")
+                .html('<i class="fas fa-play-circle"></i> Add to playlist')
+                .on("click", function () {
+                    removeFavorite(item);
+                    addPlaylist(item);
+                });
 
             let thumbnail = $("<div>").addClass("thumbnail").append(iframe).append(removeButton).append(playlistButton);
             $("#favorite-videos").append(thumbnail);
         });
+    }
+}
+
+function showPlaylist() {
+    $("#playlist-videos").empty();
+
+    if (playlist.length > 0) {
+
+        let urlArray = [];
+
+        for (let i = 1; i < playlist.length; i++) {
+            urlArray.push(playlist[i].replace("https://www.youtube.com/embed/", ""));
+        }
+
+        var urlList = urlArray.join(',');
+
+        let iframe = $("<iframe>")
+            .attr("width", "640")
+            .attr("height", "360")
+            .attr("src", playlist[0] + "?enablejsapi=1&autoplay=1&playlist=" + urlList)
+            .attr("frameborder", "0")
+            .attr("allowfullscreen", "true");
+
+        let removeButton = $("<button>")
+            .addClass("remove-button waves-effect waves-light btn-sm")
+            .html('<i class="fas fa-undo"></i> Reset Playlist')
+            .on("click", function () {
+                resetPlaylist();
+            });
+
+        $("#playlist-videos").append(iframe);
+        $("#playlist-videos").append(removeButton);
     }
 }
 
@@ -174,16 +253,22 @@ function removeFavorite(url) {
             return item !== url;
         });
 
-        database.ref("favorites/" + userId).set(favoritesList);
+        database.ref("favorites/").set(favoritesList);
     }
     showFavorites();
 }
 
-// function addPlaylist (url) {
-    
+function addPlaylist(url) {
+    playlist.push(url);
+    database.ref("playlist/").set(playlist);
+    showPlaylist();
+}
 
-// }
-
+function resetPlaylist() {
+    playlist = [];
+    database.ref("playlist/").set(playlist);
+    showPlaylist();
+}
 
 
 // Your web app's Firebase configuration
@@ -232,270 +317,3 @@ console.log(userMade);
 // create a child reference for the videos reference that holds user favorite videos
 var favorites = videos.child('Favorites');
 console.log(favorites);
-
-
-
-
-
-//   creating directives for the submit button for members
-$("#login-new-btn").on("click", function (event) {
-
-    // prevent page reload upon form submission
-    event.preventDefault();
-
-    // emptied values for new user sign-up
-    name = $("#username").val().trim();
-
-    email = $("#email").val().trim();
-
-    password = $("#password-confirm-input").val().trim();
-
-    confirmPassword = $("#returning-password-input").val().trim();
-
-    // PET NAME AND PET TYPE FROM CHECK BOX NEED TO BE ADDED
-
-    // now adding a function to ensure the user is adding a real email
-    function IsEmail(email) {
-        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if (!regex.test(email)) {
-            return false;
-        } else {
-            return true;
-        }
-    };
-
-    if (IsEmail(email) == false) {
-        $("#invalid_email").show();
-        return false;
-    };
-
-
-
-    // add password confirmation with else/if
-
-    if (password == confirmPassword) {
-
-        //local "temporary" object for holding values
-        var newUser = {
-
-            name: name,
-            email: email,
-            password: password,
-
-        };
-
-        // push the confirmed user into a login storage and into the database
-        database.ref().push(newUser);
-        loginRef.push(newUser);
-
-        // console.log the pushed new user object
-        console.log(newUser.name);
-        console.log(newUser.email);
-        console.log(newUser.password);
-
-        // create user with email and password
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            // Handle errors here
-            var errorCode = error.code;
-            var errorMessage = error.message;
-
-            // TODO: Dynamic insertion into html when error occurs to warn user
-            console.log(errorCode);
-            console.log(errorMessage);
-        });
-
-        // clear out input forms
-        $("#new-name-input").val("");
-        $("#new-email-input").val("");
-        $("#new-password-input").val("");
-        $("#new-password-confirm-input").val("");
-
-        // TODO: create div for modal that will welcome the new user into the page and show all the different things they can do as members
-
-
-
-    }
-    // if the password does not match the confirm password input then then we should show the user a text that says that passwords did not match
-    else {
-        // text as a variable
-        passwordError = $("<div>");
-        passwordError.addClass(".passwords-dont-match");
-        passwordError.text("That's ruff, your passwords don't match!");
-
-        // clear out input forms for password
-        $("#new-password-input").val("");
-        $("#new-password-confirm-input").val("");
-    }
-
-    // This puts the user inputs into the database
-    database.ref().push(newUser);
-
-    // testing the database
-    console.log(newUser.name);
-});
-
-// button to sign in existing users
-$("#login-returning-btn").on("click", function (event) {
-
-    event.preventDefault();
-
-    // setting variables for the returning user inputs
-    email = $("#returning-email-input").val().trim();
-    pass = $("#returning-password-input").val().trim();
-
-    // declaring var for user auth method
-    const auth = firebase.auth();
-
-    // promise that runs the authorization
-    auth.SignInWithEmailAndPassword(email, pass).catch(function (error) {
-
-        // handle errors in authentication
-        errorCode = error.code;
-        errorMessage = error.message;
-
-        // console log for now but needs to be dynamically inserted into html form
-        console.log(errorCode);
-        console.log(errorMessage);
-    })
-
-})
-
-// Function that will hide the password with toggle
-$("#show-password").on("click", function (event) {
-
-    // prevent page refresh upon form submission
-    event.preventDefault();
-
-    function showPassword() {
-        // set the variable hooking the password class
-        let hiddenPassword = $(".password").val().trim();
-
-        // if else statement causing the visibility toggle
-        if (hiddenPassword.type === "password") {
-            hiddenPassword.type = "text";
-        } else {
-            hiddenPassword.type = "password";
-        }
-
-    };
-
-    showPassword();
-
-    // test to make sure hiddenPassword is grabbing the right input
-    console.log(hiddenPassword);
-
-});
-
-// --------------------------------------------------------Video API---------------------------------------------------------------------------------
-
-// This API requires constant authorization through tokens so first I have to create authentication settings
-
-
-const apiVideo = require('@api.video/nodejs-sdk');
-
-myUserName = "m.villarreal789@hotmail.com";
-
-myAPIkey = "jwVeUs2YDYIjBK0Y9vDQjF4Z6DjJSFS9s4N6oTc3fCz";
-
-// create client and authenticate
-const client =  new apiVideo.Client({username:myUserName, apiKey: myAPIkey});
-
-// here we'll create the video upload event
-$("#user-upload-video").on('click',function(event) {
-
-    // prevent page refresh on form submission
-    event.preventDefault();
-
-    // set variables that tie to inputs
-    userVideoTitle = $("#video-user-title").val().trim();
-    userVideoFile = $("#video-user-file").val().trim();
-
-    // temporary object to hold value
-    userNewVideoStored = {
-        title: userVideoTitle,
-        video: userUploadVideo
-    };
-
-    // push the object into the firebase storage
-    userMade.push(userNewVideoStored);
-
-
-    // upload from the file into the firebase storage
-    var uploadTask = userMade.child(userVideoTitle).put(file);
-
-    // Register three observers:
-    // 1. 'state_changed' observer, called any time the state changes
-    // 2. Error observer, called on failure
-    // 3. Completion observer, called on successful completion
-    uploadTask.on('state_changed', function(snapshot){
-    // Observe state change events such as progress, pause, and resume
-    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
-    switch (snapshot.state) {
-        case firebase.storage.TaskState.PAUSED: // or 'paused'
-        console.log('Upload is paused');
-        break;
-        case firebase.storage.TaskState.RUNNING: // or 'running'
-        console.log('Upload is running');
-        break;
-    }
-    }, function(error) {
-    // Handle unsuccessful uploads
-    }, function() {
-    // Handle successful uploads on complete
-    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        console.log('File available at', downloadURL);
-    });
-    });
-
-    // check the object
-    console.log(userNewVideoStored.title);
-    console.log(userNewVideoStored.video);
-
-
-    // create and upload a video resource
-    let userUploadVideo = client.videos.upload(userVideoFile, {title: userVideoTitle});
-
-    // check to see if the video uploaded with the correct title
-    userUploadVideo.then(function(video) {
-        console.log(video.title);
-    }).catch(function(error) {
-        console.error(error);
-    });
-
-    // Upload a video thumbnail
-    let userUploadThumbnail = client.videos.uploadThumbnail('images/pupper.png', userVideoTitle);
-
-    userUploadThumbnail.then(function(video) {
-        console.log(video.title);
-    })
-
-    // update video thumbnail by picking image with video timecode
-    let userUpdateThumbnail = client.videos.updateThumbnailWithTimecode(userVideoTitle, '00:05:22.05');
-
-    userUpdateThumbnail.then(function(video) {
-        console.log(video.title);
-    });
-
-
-});
-
-
-
-
-
-
-
-
-
-
-// ---------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
