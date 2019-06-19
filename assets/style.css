@@ -3,8 +3,6 @@ html {
 }
 
 body {
-    
-    
     background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
     background-repeat: repeat-y;
     background-size: 100%;
@@ -414,7 +412,6 @@ h4 {
     body{
     background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
     /* background-position: center; */
-    background-repeat: no-repeat;
     }
     #illustration-main {
         max-width: 20rem;
