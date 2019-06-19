@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $(".modal").modal();
     console.log("ready");
     // adds dropdown for the account membership
     $(".dropdown-trigger").dropdown();

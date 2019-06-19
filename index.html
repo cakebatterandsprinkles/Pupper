@@ -21,7 +21,8 @@
 
   <!-- Slick Carousel CSS -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
   <!-- Our styling -->
   <link rel="stylesheet" href="assets/style.css">
@@ -52,18 +53,16 @@
       </li>
     </ul>
 
-<!-- -----------PASSWORD INPUT FIELD------------------------------------------------------------------------------------------------------------------------------------ -->
+    <!-- -----------PASSWORD INPUT FIELD------------------------------------------------------------------------------------------------------------------------------------ -->
 
     <!-- ASSUMING THAT THE FORM WILL GO HERE -MIGUEL -->
     <!-- password field: For whoever is making the form simply place these in their appropriate places when creating the form -->
-    <!-- <input type="password" value="password" class="password" id="new-password-input">
-    <input type="password" value="password" class="password" id="new-password-confirm-input">
-    <input type="password" value="password" class="password" id="returning-password-input"> -->
-    
+
+
     <!-- and to the side of each password make sure to create an icon that will be a button to show the password -->
     <!-- <input type="button" id="show-password">Show Password -->
 
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
     <!-- Dropdown -->
     <!-- Navigation bar -->
@@ -73,11 +72,63 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="#about-us">About Us</a></li>
           <li><a href="#contact-us">Contact</a></li>
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i
-                class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
+          <!-- Modal Trigger -->
+          <li>
+            <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1"
+              href="#modal1">Account</a>
+          </li>
       </div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content #e3f2fd blue lighten-5">
+        <h4 class=>Enter Information</h4>
+        <label class="pink lighten-4">Enter Human and Pet Information</label>
+        <input placeholder="Full Name" id="full_name" type="text" class="validate">
+        <input placeholder="Username" id="username" type="text" class="validate">
+        <input placeholder="Pet Name" id="petname" type="text" class="validate">
+        <div>
+          <p>
+            <p>Pet type</p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" />
+              <span>Dog</span>
+            </label>
+          </p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Cat</span>
+          </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" />
+              <span>Bird</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" />
+              <span>Other</span>
+            </label>
+          </p>
+        </div>
+        <p>
+          <label class="pink lighten-4">Enter Password</label>
+          <input type="password" value="password" class="password" id="new-password-confirm-input">
+          <label class="pink lighten-4">Confirm Password</label>
+          <input type="password" value="password" class="password" id="returning-password-input">
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat #f8bbd0 pink lighten-4">Sign
+          Up</a>
+        <a href="#!"
+          class=" modal-action modal-close waves-effect waves-green btn-flat #f8bbd0 pink lighten-4">Login</a>
+      </div>
+    </div>
+    </li>
+    </ul>
+    </div>
     </div>
   </nav>
 
@@ -89,7 +140,8 @@
         <hr class="divider-line">
         <p id="slogan">The Ultimate Pet Entertainment TV</p>
         <!-- Gave a pulse on the Demo button -->
-        <a href="#carousel-main" class="waves-effect waves-light btn-large watch-button pulse"><i class="fas fa-paw"></i>
+        <a href="#carousel-main" class="waves-effect waves-light btn-large watch-button pulse"><i
+            class="fas fa-paw"></i>
           Watch the
           Demo!</a>
       </div>
@@ -175,8 +227,7 @@
                 class="responsive-img" alt="Pup">
             </div>
             <div class="back face center">
-              <img class="circular--square" src="assets/images/yag.jpg"
-                class="responsive-img" alt="Pup">
+              <img class="circular--square" src="assets/images/yag.jpg" class="responsive-img" alt="Pup">
             </div>
           </div>
         </div>
