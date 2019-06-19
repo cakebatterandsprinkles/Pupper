@@ -76,10 +76,7 @@ $(document).ready(function () {
                         console.log(item);
                         let videoId = item.id.videoId;
                         let iframe = $("<iframe>").attr("width", "560").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + videoId)
-<<<<<<< HEAD
-=======
                             .attr("frameborder", "0")
->>>>>>> master
                             .attr("allowfullscreen", "true");
                         let video = $("<div>").addClass("video").append(iframe);
                         $(".slick-carousel").append(video);
@@ -90,11 +87,6 @@ $(document).ready(function () {
                         prevArrow: prevArrow,
                         nextArrow: nextArrow
                     });
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
                 },
                 function (err) {
                     console.error("Execute error", err);
