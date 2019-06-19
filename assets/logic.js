@@ -1,54 +1,53 @@
+let prevArrow = '<i class="fas fa-chevron-left"></i>';
+let nextArrow = '<i class="fas fa-chevron-right"></i>';
+
 $(document).ready(function () {
     console.log("ready");
     // adds dropdown for the account membership
     $(".dropdown-trigger").dropdown();
     // makes carousel functional
-    gapi.load("client:youtube", function () {
-        gapi.client.setApiKey("AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc");
-        gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest");
-    });
 
     $(".slick-carousel").slick({
-        autoplay: true
+        autoplay: true,
+        arrows: false
+        
     });
 
 
     $("#search-bar").on("submit", function (ev) {
+        console.log(ev);
         ev.preventDefault();
 
         let searchTerm = $("#search").val();
+        console.log(searchTerm);
 
         $(".slick-carousel").slick("unslick");
         $(".slick-carousel").empty();
 
-        gapi.client.youtube.search.list({
-                "part": "snippet",
-                "maxResults": 5,
-                "q": searchTerm
-            })
+        $.get("https://content.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=" + searchTerm + "&key=AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc")
             .then(function (response) {
                     console.log("Response", response);
 
-
-                    response.result.items.forEach(function (item) {
+                    response.items.forEach(function (item) {
                         console.log(item);
                         let videoId = item.id.videoId;
                         let iframe = $("<iframe>").attr("width", "560").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + videoId)
-                        .attr("allowfullscreen", "true");
+                        .attr("frameborder", "0")
+                            .attr("allowfullscreen", "true");
                         let video = $("<div>").addClass("video").append(iframe);
                         $(".slick-carousel").append(video);
                     });
 
                     $(".slick-carousel").slick({
-                        autoplay: true
+                        autoplay: true,
+                        arrows: true,
+                        prevArrow: prevArrow,
+                        nextArrow: nextArrow
                     });
-                
-
                 },
                 function (err) {
                     console.error("Execute error", err);
                 });
-
         return false;
     });
 });
@@ -103,19 +102,19 @@ $("#login-new-btn").on("click", function (event) {
     // now adding a function to ensure the user is adding a real email
     function IsEmail(email) {
         var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if(!regex.test(email)) {
-          return false;
-        }else{
-          return true;
+        if (!regex.test(email)) {
+            return false;
+        } else {
+            return true;
         }
-      };
+    };
 
     if (IsEmail(email) == false) {
         $("#invalid_email").show();
         return false;
     };
 
-    
+
 
     // add password confirmation with else/if
 
@@ -207,7 +206,7 @@ $("#login-returning-btn").on("click", function (event) {
 })
 
 // Function that will hide the password with toggle
-$("#show-password").on("click", function(event){
+$("#show-password").on("click", function (event) {
 
     // prevent page refresh upon form submission
     event.preventDefault();
@@ -219,20 +218,14 @@ $("#show-password").on("click", function(event){
         // if else statement causing the visibility toggle
         if (hiddenPassword.type === "password") {
             hiddenPassword.type = "text";
-        }
-
-        else {
+        } else {
             hiddenPassword.type = "password";
         }
 
     };
 
     showPassword();
-    
+
     // test to make sure hiddenPassword is grabbing the right input
     console.log(hiddenPassword);
 })
-
-
-
-

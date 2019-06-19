@@ -26,10 +26,19 @@ nav {
 
 .slick-carousel {
     padding-top: 50px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.video iframe {
-    width: 70%;
+.slick-arrow {
+    font-size: 50px;
+}
+
+.slick-list {
+    margin: 0 10px;
 }
 
 #container,
