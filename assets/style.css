@@ -3,15 +3,16 @@ html {
 }
 
 body {
+    
+    
     background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
-    /* background-position: center; */
     background-repeat: repeat-y;
     background-size: 100%;
     color: #1f1f1f;
     min-height: 100%;
     position: relative;
     padding-bottom: 52px;
-    margin-top:90px;
+    margin-top:90px;    
 }
 
 nav {
@@ -349,7 +350,38 @@ h3 {
 
 }
 
+.modal {
+    background-color: pink;
+    color: black;
+    border-radius: 1%;
+    
+}
+.modal-content {
+    color:black;
+    line-height: 0%;
+    margin:0%;
+    
+    border-radius: 10%;
+    position: relative;
+}
+
+.validate {
+    color:black;
+}
+
+#mobile-nav {
+    top:20px;
+    width:30%;
+    /* padding-left:40px; */
+    text-align: center;
+}
+
 @media only screen and (max-width: 1350px) {
+    body{
+    background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    }
     #illustration-main {
         max-width: 20rem;
         margin-top: 50px;
@@ -362,10 +394,28 @@ h3 {
     #scroll-icon {
         margin-top: 1rem;
     }
+
+    /* Sample */
+    .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 }
 
 
+
 @media only screen and (max-width: 1350px) {
+
+    
+
     #illustration-main {
         max-width: 20rem;
         margin-top: 50px;

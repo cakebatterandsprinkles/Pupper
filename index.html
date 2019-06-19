@@ -55,34 +55,172 @@
       </li>
     </ul>
 
-<!-- -----------PASSWORD INPUT FIELD------------------------------------------------------------------------------------------------------------------------------------ -->
+    <!-- -----------PASSWORD INPUT FIELD------------------------------------------------------------------------------------------------------------------------------------ -->
 
     <!-- ASSUMING THAT THE FORM WILL GO HERE -MIGUEL -->
     <!-- password field: For whoever is making the form simply place these in their appropriate places when creating the form -->
-    <!-- <input type="password" value="password" class="password" id="new-password-input">
-    <input type="password" value="password" class="password" id="new-password-confirm-input">
-    <input type="password" value="password" class="password" id="returning-password-input"> -->
-    
+
+
     <!-- and to the side of each password make sure to create an icon that will be a button to show the password -->
     <!-- <input type="button" id="show-password">Show Password -->
 
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
     <!-- Dropdown -->
     <!-- Navigation bar -->
     <div class="nav-wrapper purple">
       <div class="container">
         <a href="#" class="brand-logo">Pupper</a>
+
+        <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+          <i class="material-icons">menu</i>
+        </a>
+
         <ul class="right hide-on-med-and-down">
           <li><a href="#about-us">About Us</a></li>
           <li><a href="#contact-us">Contact</a></li>
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i
-                class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
+          <!-- Modal Trigger -->
+          <li><a href="#modal2"
+              class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4"
+              class="modal">Login</a></li>
+          <li>
+            <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1"
+              href="#modal1">Account</a>
+          </li>
       </div>
     </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content #e3f2fd blue lighten-5">
+        <h4 class=>Enter Information</h4>
+        <label class="pink lighten-4">Enter Human and Pet Information</label>
+        <input placeholder="Username" id="username" type="text" class="validate">
+        <input placeholder="Email" id="email" type="text" class="validate">
+        <input placeholder="Pet Name" id="petname" type="text" class="validate">
+        <div>
+          <p>
+            <p>Pet type</p>
+            <label>
+              <input type="checkbox" class="filled-in pink" checked="checked pink" />
+              <span>Dog</span>
+            </label>
+          </p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Cat</span>
+          </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" />
+              <span>Bird</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" />
+              <span>Other</span>
+            </label>
+          </p>
+        </div>
+        <p>
+          <label class="pink lighten-4">Enter Password</label>
+          <input type="password" value="password" class="password" id="password-confirm-input">
+          <label class="pink lighten-4">Confirm Password</label>
+          <input type="password" value="password" class="password" id="returning-password-input">
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Sign
+          Up</a>
+
+      </div>
+    </div>
+    </li>
+    </ul>
+
+    <!-- second modal -->
+
+    <div id="modal2" class="modal">
+      <div class="modal-content #e3f2fd blue lighten-5">
+        <h4 class=>Enter Information</h4>
+        <label class="pink lighten-4">Enter Human and Pet Information</label>
+        <input placeholder="Username" id="username" type="text" class="validate">
+        <input placeholder="Email" id="email" type="text" class="validate">
+        <input placeholder="Pet Name" id="petname" type="text" class="validate">
+        <div>
+          <p>
+            <p>test</p>
+            <label>
+              <input type="checkbox" class="filled-in pink" checked="checked pink" />
+              <span>Dog</span>
+            </label>
+          </p>
+          <label>
+            <input type="checkbox"/>
+            <span>Cat</span>
+          </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox"/>
+              <span>Bird</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" checked="checked" />
+              <span>Other</span>
+            </label>
+          </p>
+        </div>
+        <p>
+          <label class="pink lighten-4">Enter Password</label>
+          <input type="password" value="password" class="password" id="password-confirm-input">
+          <label class="pink lighten-4">Confirm Password</label>
+          <input type="password" value="password" class="password" id="returning-password-input">
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Sign
+          Up</a>
+
+      </div>
+    </div>
+    </li>
+    </ul>
+
+
   </nav>
+
+
+  <!-- Login modal -->
+
+  <!-- <div id="modal2" class="modal">
+    <div class="modal-content #e3f2fd blue lighten-5">
+      <h4 class=>Enter Information</h4>
+      <label class="pink lighten-4">Enter Login Information</label>
+      <input placeholder="Email" id="emailLogin" type="text" class="validate">
+      <input placeholder = "Password" id ="passwordLogin" type ="text" class = "validate">
+      <div> -->
+
+
+  <!-- sidenav for mobile -->
+
+  <ul class="sidenav #fce4ec pink lighten-5" id="mobile-nav">
+    <li>test</li>
+    <li>
+      <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1"
+        href="#modul2">Account</a>
+    </li>
+    <li><a href="#about-us">About Us</a></li>
+    <li><a href="#contact-us">Contact</a></li>
+    <!-- Modal Trigger -->
+
+
+  </ul>
+
+
+
+
 
   <!-- Main div with project logo and introduction -->
   <div id="container" class="container">
@@ -92,7 +230,8 @@
         <hr class="divider-line">
         <p id="slogan">The Ultimate Pet Entertainment TV</p>
         <!-- Gave a pulse on the Demo button -->
-        <a href="#carousel-main" class="waves-effect waves-light btn-large watch-button pulse"><i class="fas fa-paw"></i>
+        <a href="#carousel-main" class="waves-effect waves-light btn-large watch-button pulse"><i
+            class="fas fa-paw"></i>
           Watch the
           Demo!</a>
       </div>
@@ -178,8 +317,7 @@
                 class="responsive-img" alt="Pup">
             </div>
             <div class="back face center">
-              <img class="circular--square" src="assets/images/yag.jpg"
-                class="responsive-img" alt="Pup">
+              <img class="circular--square" src="assets/images/yag.jpg" class="responsive-img" alt="Pup">
             </div>
           </div>
         </div>
