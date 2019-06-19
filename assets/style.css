@@ -25,14 +25,26 @@ nav {
 }
 
 .slick-carousel {
-    padding-top: 20px;
-    padding-bottom: 80px;
+    padding-top: 50px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.video iframe {
-    width: 100%;
+iframe {
+    display: block;
+    margin: auto;
 }
 
+.slick-arrow {
+    font-size: 50px;
+}
+
+.slick-list {
+    margin: 0 10px;
+}
 
 #container,
 .wrapper {
@@ -43,6 +55,17 @@ nav {
 
 .wrapper {
     padding: 1.25rem 2.5rem 1.25rem 2.5rem;
+}
+
+#favorite-videos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    padding: 10px;
+    text-align: center;
 }
 
 #illustration-main {
@@ -78,17 +101,22 @@ nav {
     color: white;
 }
 
-#youtube-search:hover {
+#youtube-search:hover, #youtube-search:active {
     background-color: white;
 }
 
 #search-bar {
     margin: auto;
-    max-width: 80%;
+    max-width: 90%;
 }
 
 #carousel-main {
+    text-align: center;
     margin-top: 1.25rem;
+}
+
+#video-div {
+    height:600px;
 }
 
 .row-image-left {
@@ -189,7 +217,8 @@ h3 {
 
 
 .watch-button,
-.submit-button {
+.submit-button,
+.favorite-button {
     border: 2px solid #e040fb;
     border-radius: 20px;
     background-color: white;
@@ -200,8 +229,24 @@ h3 {
 }
 
 .watch-button:hover,
-.submit-button:hover {
+.submit-button:hover,
+.favorite-button:hover {
     background-color: #e040fb;
+    color: white;
+}
+
+
+.remove-button {
+    border: 2px solid #ef5350;
+    border-radius: 4px;
+    background-color: white;
+    color: #ef5350;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.remove-button:hover {
+    background-color: #ef5350;
     color: white;
 }
 

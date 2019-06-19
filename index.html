@@ -52,14 +52,28 @@
       </div>
       </li>
     </ul>
+
+<!-- -----------PASSWORD INPUT FIELD------------------------------------------------------------------------------------------------------------------------------------ -->
+
+    <!-- ASSUMING THAT THE FORM WILL GO HERE -MIGUEL -->
+    <!-- password field: For whoever is making the form simply place these in their appropriate places when creating the form -->
+    <!-- <input type="password" value="password" class="password" id="new-password-input">
+    <input type="password" value="password" class="password" id="new-password-confirm-input">
+    <input type="password" value="password" class="password" id="returning-password-input"> -->
+    
+    <!-- and to the side of each password make sure to create an icon that will be a button to show the password -->
+    <!-- <input type="button" id="show-password">Show Password -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
     <!-- Dropdown -->
     <!-- Navigation bar -->
     <div class="nav-wrapper purple">
       <div class="container">
         <a href="#" class="brand-logo">Pupper</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#about-us">About Us</a></li>
+          <li><a href="#contact-us">Contact</a></li>
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i
                 class="material-icons right">arrow_drop_down</i></a></li>
@@ -76,7 +90,7 @@
         <hr class="divider-line">
         <p id="slogan">The Ultimate Pet Entertainment TV</p>
         <!-- Gave a pulse on the Demo button -->
-        <a href="#carousel" class="waves-effect waves-light btn-large watch-button pulse"><i class="fas fa-paw"></i>
+        <a href="#carousel-main" class="waves-effect waves-light btn-large watch-button pulse"><i class="fas fa-paw"></i>
           Watch the
           Demo!</a>
       </div>
@@ -98,13 +112,13 @@
     </div>
   </div>
   <div id="carousel-main">
-    <div class="container content wrapper">
+    <div class="container content wrapper" id="video-div">
       <nav>
         <!-- added light blue to the searchbar -->
         <div class="nav-wrapper">
           <form id="search-bar">
             <!-- added light purple to the searchbar -->
-            <div class="input-field purple z-depth-3" id="youtube-search">
+            <div class="input-field pink accent-2 z-depth-3" id="youtube-search">
               <input id="search" type="search" required>
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
@@ -114,7 +128,7 @@
       </nav>
       <div class="slick-carousel">
         <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI" frameborder="0"
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
@@ -132,7 +146,7 @@
               <img class="circular--square" src="assets/images/West.png" class="responsive-img" alt="Pup">
             </div>
             <div class="back face center">
-              <img class="circular--square" src="assets/images/West.png" class="responsive-img" alt="Pup">
+              <img class="circular--square" src="assets/images/nico.jpg" class="responsive-img" alt="Pup">
             </div>
           </div>
         </div>
@@ -162,7 +176,7 @@
                 class="responsive-img" alt="Pup">
             </div>
             <div class="back face center">
-              <img class="circular--square" src="assets/images/cookiedrinkingsmoothie-cropped.jpg"
+              <img class="circular--square" src="assets/images/yag.jpg"
                 class="responsive-img" alt="Pup">
             </div>
           </div>
@@ -178,7 +192,7 @@
               <img class="circular--square" src="assets/images/athena-cropped.jpg" class="responsive-img" alt="Pup">
             </div>
             <div class="back face center">
-              <img class="circular--square" src="assets/images/athena-cropped.jpg" class="responsive-img" alt="Pup">
+              <img class="circular--square" src="assets/images/miguel.jpg" class="responsive-img" alt="Pup">
             </div>
           </div>
         </div>
@@ -292,9 +306,6 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-  <!-- Youtube API-->
-  <script src="https://apis.google.com/js/client.js"></script>
 
   <!-- our CDN -->
   <script src="assets/logic.js"></script>
