@@ -3,8 +3,6 @@ html {
 }
 
 body {
-    
-    
     background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
     background-repeat: repeat-y;
     background-size: 100%;
@@ -199,7 +197,7 @@ h3 {
 h4 {
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: medium;
+    font-size: 2.5rem;
 }
 .names {
     text-align: center;
@@ -238,6 +236,21 @@ h4 {
     color: white;
 }
 
+.info-button {
+    border: 2px solid #ff4081;
+    border-radius: 20px;
+    background-color: white;
+    color: #ff4081;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left:1.25rem;
+    padding: 0 1rem 4rem 1rem;
+}
+
+.info-button:hover {
+    background-color: #ff4081;
+    color: white;
+}
 
 .remove-button {
     border: 2px solid #ef5350;
@@ -414,7 +427,6 @@ h4 {
     body{
     background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
     /* background-position: center; */
-    background-repeat: no-repeat;
     }
     #illustration-main {
         max-width: 20rem;

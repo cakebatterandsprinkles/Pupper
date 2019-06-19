@@ -1,8 +1,6 @@
 let prevArrow = '<i class="fas fa-chevron-left"></i>';
 let nextArrow = '<i class="fas fa-chevron-right"></i>';
 
-const userId = 'test';
-
 let favoritesList = [];
 
 $(document).ready(function () {
@@ -59,6 +57,15 @@ $(document).ready(function () {
         $("#form_email").val("");
         $("#textarea1").val("");
 
+        let queryUrl = "https://api.giphy.com/v1/gifs/search?q=" +
+        pettype +
+        "&api_key=wSCP998sGk4ILdpbjPhlS0EMr9227bNx&limit=10&lang=en";
+
+        $.get(queryUrl).then(function (data) {
+            console.log(data);
+            $("#illustration-main").empty();
+            let gif = $("<img>")
+            .attr("src", data.data[0].images.original_still.url);
     });
 
 
@@ -98,6 +105,31 @@ $(document).ready(function () {
                 });
         return false;
     });
+
+    $("#submit-info").on("click", function(event) {
+        event.preventDefault();
+  
+        var name = $("#name-input").val().trim();
+        var petname = $("#petname-input").val().trim();
+        var pettype = $("#pettype-input").val().trim();
+  
+        console.log(name);
+        console.log(petname);
+        console.log(pettype);
+  
+        $("#main-header").empty();
+        $("#main-header").html('<h1>Hello <span id="username-display"></span> + " & " + <span id="petname-display"></span>!</h1>');
+        $("#slogan").html("Welcome to your personalized Pet TV!");
+
+        localStorage.clear();
+  
+        localStorage.setItem("name", name);
+        localStorage.setItem("petname", petname);
+        localStorage.setItem("pettype", pettype);
+      });
+  
+      $("#username-display").text(localStorage.getItem("name"));
+      $("#petname-display").text(localStorage.getItem("email"));
 });
 
 function showFavorites() {
@@ -142,14 +174,13 @@ function removeFavorite(url) {
 
         database.ref("favorites/" + userId).set(favoritesList);
     }
-
     showFavorites();
 }
 
-function addPlaylist (url) {
+// function addPlaylist (url) {
     
 
-}
+// }
 
 
 
