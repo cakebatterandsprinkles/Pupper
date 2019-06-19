@@ -158,15 +158,33 @@ var feedback = database.ref("/feedback");
 
 //creation of reference that holds users and their passwords
 var storage = firebase.storage();
+console.log(storage);
 
 // create a storage reference from the storage service
 var userRef = storage.ref();
 
 //   create a child reference to hold user login info
 var loginRef = userRef.child('User Login Info');
+console.log(loginRef);
 
 // create a child reference to hold user preferences such as videos, images, ect...
 var userPreferencesRef = userRef.child('User Preferences');
+console.log(userPreferencesRef);
+
+// create a child reference for userPreferencesRef that will hold the videos
+var videos = userPreferencesRef.child('Videos');
+console.log(videos);
+
+// create a child reference for the videos reference that holds user made videos
+var userMade = videos.child('User Made');
+console.log(userMade);
+
+// create a child reference for the videos reference that holds user favorite videos
+var favorites = videos.child('Favorites');
+console.log(favorites);
+
+
+
 
 
 //   creating directives for the submit button for members
@@ -313,4 +331,119 @@ $("#show-password").on("click", function (event) {
 
     // test to make sure hiddenPassword is grabbing the right input
     console.log(hiddenPassword);
-})
+
+});
+
+// --------------------------------------------------------Video API---------------------------------------------------------------------------------
+
+// This API requires constant authorization through tokens so first I have to create authentication settings
+
+
+const apiVideo = require('@api.video/nodejs-sdk');
+
+myUserName = "m.villarreal789@hotmail.com";
+
+myAPIkey = "jwVeUs2YDYIjBK0Y9vDQjF4Z6DjJSFS9s4N6oTc3fCz";
+
+// create client and authenticate
+const client =  new apiVideo.Client({username:myUserName, apiKey: myAPIkey});
+
+// here we'll create the video upload event
+$("#user-upload-video").on('click',function(event) {
+
+    // prevent page refresh on form submission
+    event.preventDefault();
+
+    // set variables that tie to inputs
+    userVideoTitle = $("#video-user-title").val().trim();
+    userVideoFile = $("#video-user-file").val().trim();
+
+    // temporary object to hold value
+    userNewVideoStored = {
+        title: userVideoTitle,
+        video: userUploadVideo
+    };
+
+    // push the object into the firebase storage
+    userMade.push(userNewVideoStored);
+
+
+    // upload from the file into the firebase storage
+    var uploadTask = userMade.child(userVideoTitle).put(file);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on('state_changed', function(snapshot){
+    // Observe state change events such as progress, pause, and resume
+    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log('Upload is ' + progress + '% done');
+    switch (snapshot.state) {
+        case firebase.storage.TaskState.PAUSED: // or 'paused'
+        console.log('Upload is paused');
+        break;
+        case firebase.storage.TaskState.RUNNING: // or 'running'
+        console.log('Upload is running');
+        break;
+    }
+    }, function(error) {
+    // Handle unsuccessful uploads
+    }, function() {
+    // Handle successful uploads on complete
+    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+    uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        console.log('File available at', downloadURL);
+    });
+    });
+
+    // check the object
+    console.log(userNewVideoStored.title);
+    console.log(userNewVideoStored.video);
+
+
+    // create and upload a video resource
+    let userUploadVideo = client.videos.upload(userVideoFile, {title: userVideoTitle});
+
+    // check to see if the video uploaded with the correct title
+    userUploadVideo.then(function(video) {
+        console.log(video.title);
+    }).catch(function(error) {
+        console.error(error);
+    });
+
+    // Upload a video thumbnail
+    let userUploadThumbnail = client.videos.uploadThumbnail('images/pupper.png', userVideoTitle);
+
+    userUploadThumbnail.then(function(video) {
+        console.log(video.title);
+    })
+
+    // update video thumbnail by picking image with video timecode
+    let userUpdateThumbnail = client.videos.updateThumbnailWithTimecode(userVideoTitle, '00:05:22.05');
+
+    userUpdateThumbnail.then(function(video) {
+        console.log(video.title);
+    });
+
+
+});
+
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
