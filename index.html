@@ -21,7 +21,8 @@
 
   <!-- Slick Carousel CSS -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
   <!-- Our styling -->
   <link rel="stylesheet" href="assets/style.css">
@@ -225,22 +226,22 @@
         <div class="col s12 xl6">
           <div class="row input-field">
             <div>
-              <input placeholder="Jane" id="first_name" type="text" class="validate form">
+              <input placeholder="Jane" id="first_name" name="firstname" type="text" class="validate form">
               <label for="first_name">First Name</label>
             </div>
             <div>
-              <input placeholder="Smith" id="last_name" type="text" class="validate form">
+              <input placeholder="Smith" id="last_name" name="lastname" type="text" class="validate form">
               <label for="last_name">Last Name</label>
             </div>
             <div>
-              <input placeholder="janesmith@gmail.com" id="email" type="email" class="validate form">
+              <input placeholder="janesmith@gmail.com" name="email" id="form_email" type="email" class="validate form">
               <label for="email">E-mail</label>
             </div>
-            <form action="post">
-              <textarea id="textarea1" class="materialize-textarea form"></textarea>
+            <div>
+              <textarea id="textarea1" name="textarea1" class="materialize-textarea form"></textarea>
               <label for="textarea1">Textarea</label>
-            </form>
-            <a class="waves-effect waves-light btn-large submit-button"><i class="fas fa-paw"></i> Submit </a>
+            </div>
+            <a id="form-submit-button" class="waves-effect waves-light btn-large submit-button"><i class="fas fa-paw"></i> Submit </a>
           </div>
         </div>
       </div>
