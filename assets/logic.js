@@ -16,8 +16,6 @@ $(document).ready(function () {
         arrows: false
     });
 
-    showFavorites();
-
     $(".favorite-button").on("click", function () {
         const currentVideoUrl = $(".slick-current iframe").attr("src");
 
