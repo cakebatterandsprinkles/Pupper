@@ -253,14 +253,16 @@ $("#show-password").on("click", function(event){
 // --------------------------------------------------------Video API---------------------------------------------------------------------------------
 
 // This API requires constant authorization through tokens so first I have to create authentication settings
-const apiVideo = require("@api.video/nodejs-sdk");
+
+
+const apiVideo = require('@api.video/nodejs-sdk');
 
 myUserName = "m.villarreal789@hotmail.com";
 
 myAPIkey = "jwVeUs2YDYIjBK0Y9vDQjF4Z6DjJSFS9s4N6oTc3fCz";
 
 // create client and authenticate
-const client = new apiVideo.Client({username:myUserName, apiKey: myAPIkey});
+const client =  new apiVideo.Client({username:myUserName, apiKey: myAPIkey});
 
 // here we'll create the video upload event
 $("#user-upload-video").on('click',function(event) {
