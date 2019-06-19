@@ -33,6 +33,30 @@ $(document).ready(function () {
         }
     });
 
+    $("#form-submit-button").on("click", function () {
+        const firstName = $("#first_name").val().trim();
+        const lastName = $("#last_name").val().trim();
+        const email = $("#form_email").val().trim();
+        const text = $("#textarea1").val().trim();
+
+        const newFeedback = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            text: text
+        };
+
+        feedback.push(newFeedback);
+
+        alert("Your feedback has been received.");
+
+        $("#first_name").val("");
+        $("#last_name").val("");
+        $("#form_email").val("");
+        $("#textarea1").val("");
+
+    });
+
 
     $("#search-bar").on("submit", function (ev) {
         console.log(ev);
@@ -52,7 +76,10 @@ $(document).ready(function () {
                         console.log(item);
                         let videoId = item.id.videoId;
                         let iframe = $("<iframe>").attr("width", "560").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + videoId)
+<<<<<<< HEAD
+=======
                             .attr("frameborder", "0")
+>>>>>>> master
                             .attr("allowfullscreen", "true");
                         let video = $("<div>").addClass("video").append(iframe);
                         $(".slick-carousel").append(video);
@@ -63,6 +90,11 @@ $(document).ready(function () {
                         prevArrow: prevArrow,
                         nextArrow: nextArrow
                     });
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> master
                 },
                 function (err) {
                     console.error("Execute error", err);
@@ -129,6 +161,8 @@ firebase.initializeApp(firebaseConfig);
 // declaration of firebase 
 var database = firebase.database();
 console.log(database);
+
+var feedback = database.ref("/feedback");
 
 //creation of reference that holds users and their passwords
 var storage = firebase.storage();
