@@ -3,15 +3,16 @@ html {
 }
 
 body {
+    
+    
     background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
-    /* background-position: center; */
     background-repeat: repeat-y;
     background-size: 100%;
     color: #1f1f1f;
     min-height: 100%;
     position: relative;
     padding-bottom: 52px;
-    margin-top:90px;
+    margin-top:90px;    
 }
 
 nav {
@@ -333,6 +334,11 @@ h3 {
 }
 
 @media only screen and (max-width: 1350px) {
+    body{
+    background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    }
     #illustration-main {
         max-width: 20rem;
         margin-top: 50px;
@@ -364,6 +370,9 @@ h3 {
 
 
 @media only screen and (max-width: 1350px) {
+
+    
+
     #illustration-main {
         max-width: 20rem;
         margin-top: 50px;
