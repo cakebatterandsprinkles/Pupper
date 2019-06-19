@@ -38,7 +38,7 @@
 
   <!-- Dropdown from navigation bar -->
   <nav class="navStick">
-    
+
     <!-- -----------PASSWORD INPUT FIELD------------------------------------------------------------------------------------------------------------------------------------ -->
 
     <!-- ASSUMING THAT THE FORM WILL GO HERE -MIGUEL -->
@@ -64,18 +64,17 @@
           <li><a href="#about-us">About Us</a></li>
           <li><a href="#contact-us">Contact</a></li>
           <!-- Modal Trigger -->
-          
-              <li>
-                <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4"
-                  href="#modal2">Login</a>
-              </li>
+
+
           <li>
-            <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1"
-              href="#modal1"><i class="material-icons">account_box</i></a>
+            <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1" href="#modal2"><i
+                class="material-icons">account_box</i></a>
           </li>
       </div>
     </div>
-    <!-- Modal Structure -->
+    <!-- END NAVIGATION BAR -->
+
+    <!-- Modal 1 Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content #e3f2fd blue lighten-5">
         <h4 class=>Enter Info</h4>
@@ -87,24 +86,24 @@
           <p>
             <p>Pet type</p>
             <label>
-              <input type="checkbox"/>
+              <input type="checkbox" />
               <span>Dog</span>
             </label>
           </p>
           <label>
-            <input type="checkbox"/>
+            <input type="checkbox" />
             <span>Cat</span>
           </label>
           </p>
           <p>
             <label>
-              <input type="checkbox"/>
+              <input type="checkbox" />
               <span>Bird</span>
             </label>
           </p>
           <p>
             <label>
-              <input type="checkbox"/>
+              <input type="checkbox" />
               <span>Other</span>
             </label>
           </p>
@@ -114,15 +113,14 @@
           <input type="password" value="password" class="password" id="password-confirm-input">
           <label class="pink lighten-4">Confirm Password</label>
           <input type="password" value="password" class="password" id="returning-password-input">
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Sign
-          Up</a>
-
+          <a  href="#!" class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4">Sign Up</a>
+          
       </div>
     </div>
     </li>
     </ul>
+    <!-- FIRST MODAL END -->
+
 
     <!-- second modal -->
 
@@ -131,26 +129,29 @@
         <h4 class=>Enter Login Information</h4>
         <label class="pink lighten-4">Enter Email</label>
         <input placeholder="Email" type="text" class="validate">
-        
-        
+
+
         <p>
           <label class="pink lighten-4">Enter Password</label>
           <input type="password" value="password" class="password" id="password-confirm-input">
+          <a href="#!" class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4">Login</a>
+          <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4" href="#modal1">Sign Up</a>
+          <p>New here? Sign up!</p>
       </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Sign
-          Up</a>
+      <!-- <div class="modal-footer">
 
-      </div>
+        <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4" href="#modal1">Sign Up</a>
+
+        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Login</a>
+
+      </div> -->
     </div>
     </li>
     </ul>
-
-
   </nav>
+  <!-- SECOND MODAL END -->
 
 
-  <!-- Login modal -->
 
   <!-- <div id="modal2" class="modal">
     <div class="modal-content #e3f2fd blue lighten-5">
@@ -167,13 +168,11 @@
     <li>test</li>
     <li>
       <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1"
-        href="#modal1">Account</a>
+        href="#modal2">Account</a>
     </li>
     <li><a href="#about-us">About Us</a></li>
     <li><a href="#contact-us">Contact</a></li>
     <!-- Modal Trigger -->
-
-
   </ul>
 
 
@@ -346,7 +345,7 @@
               <label for="last_name">Last Name</label>
             </div>
             <div>
-              <input placeholder="janesmith@gmail.com"  type="email" class="validate form">
+              <input placeholder="janesmith@gmail.com" type="email" class="validate form">
               <label for="email">E-mail</label>
             </div>
             <form action="post">
