@@ -79,45 +79,11 @@
       <div class="modal-content #e3f2fd blue lighten-5">
         <h4 class=>Enter Info</h4>
         <label class="pink lighten-4">Enter Human and Pet Information</label>
-        <input placeholder="Username" id="username" type="text" class="validate">
-        <input placeholder="Email" type="text" class="validate">
-        <input placeholder="Pet Name" id="petname" type="text" class="validate">
-        <div>
-          <p>
-            <p>Pet type</p>
-            <label>
-              <input type="checkbox" />
-              <span>Dog</span>
-            </label>
-          </p>
-          <label>
-            <input type="checkbox" />
-            <span>Cat</span>
-          </label>
-          </p>
-          <p>
-            <label>
-              <input type="checkbox" />
-              <span>Bird</span>
-            </label>
-          </p>
-          <p>
-            <label>
-              <input type="checkbox" />
-              <span>Other</span>
-            </label>
-          </p>
-        </div>
-        <p>
-          <label class="pink lighten-4">Enter Password</label>
-          <input type="password" value="password" class="password" id="password-confirm-input">
-          <label class="pink lighten-4">Confirm Password</label>
-          <input type="password" value="password" class="password" id="returning-password-input">
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Sign
-          Up</a>
-
+        <input placeholder="Name" id="username-display" type="text" class="validate">
+        <!-- <input placeholder="Email" type="text" class="validate"> -->
+        <input placeholder="Pet Name" id="petname-display" type="text" class="validate">
+        <input placeholder="Pet Type" id="pettype-display" type="text" class="validate">
+        <a class="waves-effect waves-light btn-large favorite-button" id="form-submit-button"><i class="fas fa-heart"></i> Add info </a>
       </div>
     </div>
     </li>
@@ -185,9 +151,9 @@
             class="fas fa-paw"></i>
           Watch the
           Demo!</a>
-        <button class="waves-effect waves-light btn-large info-button pulse"><i
+        <a class="waves-effect waves-light btn-large info-button pulse modal-trigger" href="#modal1"><i
             class="fas fa-pen"></i>
-          Add your info! </button>
+          Add your info! </a>
       </div>
       <!-- MAIN IMAGE -->
       <div class="col s12 l6">
