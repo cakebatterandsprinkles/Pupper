@@ -236,6 +236,22 @@ h4 {
     color: white;
 }
 
+.info-button {
+    border: 2px solid #ff4081;
+    border-radius: 20px;
+    background-color: white;
+    color: #ff4081;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left:1.25rem;
+    padding: 0 1rem 4rem 1rem;
+}
+
+.info-button:hover {
+    background-color: #ff4081;
+    color: white;
+}
+
 
 .remove-button {
     border: 2px solid #ef5350;

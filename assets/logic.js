@@ -57,6 +57,15 @@ $(document).ready(function () {
         $("#form_email").val("");
         $("#textarea1").val("");
 
+        let queryUrl = "https://api.giphy.com/v1/gifs/search?q=" +
+        pettype +
+        "&api_key=wSCP998sGk4ILdpbjPhlS0EMr9227bNx&limit=10&lang=en";
+
+        $.get(queryUrl).then(function (data) {
+            console.log(data);
+            $("#illustration-main").empty();
+            let gif = $("<img>")
+            .attr("src", data.data[0].images.original_still.url);
     });
 
 
