@@ -65,62 +65,29 @@
           <li><a href="#contact-us">Contact</a></li>
           <!-- Modal Trigger -->
 
-
+          <!-- <li>
+            <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4" href="#modal2">Login</a>
+          </li> -->
           <li>
-            <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1" href="#modal2"><i
-                class="material-icons">account_box</i></a>
+            <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4"" href="#modal1"><i
+                class="material-icons">edit</i></a>
           </li>
       </div>
     </div>
-    <!-- END NAVIGATION BAR -->
-
-    <!-- Modal 1 Structure -->
+    <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content #e3f2fd blue lighten-5">
         <h4 class=>Enter Info</h4>
         <label class="pink lighten-4">Enter Human and Pet Information</label>
-        <input placeholder="Username" id="username" type="text" class="validate">
-        <input placeholder="Email" type="text" class="validate">
-        <input placeholder="Pet Name" id="petname" type="text" class="validate">
-        <div>
-          <p>
-            <p>Pet type</p>
-            <label>
-              <input type="checkbox" />
-              <span>Dog</span>
-            </label>
-          </p>
-          <label>
-            <input type="checkbox" />
-            <span>Cat</span>
-          </label>
-          </p>
-          <p>
-            <label>
-              <input type="checkbox" />
-              <span>Bird</span>
-            </label>
-          </p>
-          <p>
-            <label>
-              <input type="checkbox" />
-              <span>Other</span>
-            </label>
-          </p>
-        </div>
-        <p>
-          <label class="pink lighten-4">Enter Password</label>
-          <input type="password" value="password" class="password" id="password-confirm-input">
-          <label class="pink lighten-4">Confirm Password</label>
-          <input type="password" value="password" class="password" id="returning-password-input">
-          <a  href="#!" class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4">Sign Up</a>
-          
+        <input placeholder="Name" id="username-display" type="text" class="validate">
+        <!-- <input placeholder="Email" type="text" class="validate"> -->
+        <input placeholder="Pet Name" id="petname-display" type="text" class="validate">
+        <input placeholder="Pet Type" id="pettype-display" type="text" class="validate">
+        <a class="waves-effect waves-light btn-large favorite-button" id="form-submit-button"><i class="fas fa-heart"></i> Add info </a>
       </div>
     </div>
     </li>
     </ul>
-    <!-- FIRST MODAL END -->
-
 
     <!-- second modal -->
 
@@ -134,24 +101,21 @@
         <p>
           <label class="pink lighten-4">Enter Password</label>
           <input type="password" value="password" class="password" id="password-confirm-input">
-          <a href="#!" class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4">Login</a>
-          <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4" href="#modal1">Sign Up</a>
-          <p>New here? Sign up!</p>
       </div>
-      <!-- <div class="modal-footer">
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Sign
+          Up</a>
 
-        <a class="waves-effect waves-light btn modal-trigger #f8bbd0 pink lighten-4" href="#modal1">Sign Up</a>
-
-        <a href="#!" class=" modal-action modal-close waves-effect waves-pink btn-flat #f8bbd0 pink lighten-4">Login</a>
-
-      </div> -->
+      </div>
     </div>
     </li>
     </ul>
+
+
   </nav>
-  <!-- SECOND MODAL END -->
 
 
+  <!-- Login modal -->
 
   <!-- <div id="modal2" class="modal">
     <div class="modal-content #e3f2fd blue lighten-5">
@@ -168,29 +132,28 @@
     <li>test</li>
     <li>
       <a class="waves-effect waves-light btn modal-trigger #90caf9 blue #64b5f6 blue lighten-1"
-        href="#modal2">Account</a>
+        href="#modal1">Account</a>
     </li>
     <li><a href="#about-us">About Us</a></li>
     <li><a href="#contact-us">Contact</a></li>
     <!-- Modal Trigger -->
   </ul>
 
-
-
-
-
   <!-- Main div with project logo and introduction -->
   <div id="container" class="container">
     <div class="row content">
       <div class="col s12 l6" id="content-text">
-        <h1>Welcome to Pupper!</h1>
+        <h1 id="main-header">Welcome to Pupper!</h1>
         <hr class="divider-line">
         <p id="slogan">The Ultimate Pet Entertainment TV</p>
         <!-- Gave a pulse on the Demo button -->
-        <a href="#carousel-main" class="waves-effect waves-light btn-large watch-button pulse"><i
+        <a href="#carousel-main" class="waves-effect waves-light btn-large watch-button"><i
             class="fas fa-paw"></i>
           Watch the
           Demo!</a>
+        <a class="waves-effect waves-light btn-large info-button pulse modal-trigger" href="#modal1"><i
+            class="fas fa-pen"></i>
+          Add your info! </a>
       </div>
       <!-- MAIN IMAGE -->
       <div class="col s12 l6">
@@ -209,16 +172,19 @@
       </div>
     </div>
   </div>
-  <div id="carousel-main">
-    <div class="container content wrapper" id="video-div">
+
+  <div class="container wrapper" id="browse">
+    <h3>Browse Videos</h3>
+    <hr class="divider-line">
+    <div id="carousel-main">
       <nav>
         <!-- added light blue to the searchbar -->
         <div class="nav-wrapper">
           <form id="search-bar">
             <!-- added light purple to the searchbar -->
-            <div class="input-field #f06292 pink lighten-2" id="youtube-search">
+            <div class="input-field pink accent-2 z-depth-3" id="youtube-search">
               <input id="search" type="search" required>
-              <label class="label-icon" for="search"><i class="material-icons ">search</i></label>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
           </form>
@@ -226,10 +192,25 @@
       </nav>
       <div class="slick-carousel">
         <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/7cAON1Lb4kI" frameborder="0"
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Ry2b_XLAXR8"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
+      <a class="waves-effect waves-light btn-large favorite-button"><i class="fas fa-heart"></i> Add to Favorites </a>
+    </div>
+  </div>
+
+  <div class="container wrapper" id="favorites">
+    <h3>Favorite Videos</h3>
+    <hr class="divider-line">
+    <div id="favorite-videos">
+    </div>
+  </div>
+  <div class="container wrapper" id="playlist">
+    <h3>Playlist</h3>
+    <hr class="divider-line">
+    <div id="playlist-videos">
     </div>
   </div>
 
