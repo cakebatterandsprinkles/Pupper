@@ -6,11 +6,13 @@ const userId = 'test';
 let favoritesList = [];
 
 $(document).ready(function () {
+    //creates a form on account and login
     $(".modal").modal();
     console.log("ready");
 
     // adds dropdown for the account membership
     $(".dropdown-trigger").dropdown();
+    //creates mobile menu
     $(".sidenav").sidenav();
     // makes carousel functional
 
