@@ -7,7 +7,6 @@ let playlist = [];
 $(document).ready(function () {
     //creates a form on account and login
     $(".modal").modal();
-    console.log("ready");
 
     // adds dropdown for the account membership
     $(".dropdown-trigger").dropdown();
@@ -93,11 +92,9 @@ $(document).ready(function () {
 
 
     $("#search-bar").on("submit", function (ev) {
-        console.log(ev);
         ev.preventDefault();
 
         let searchTerm = $("#search").val();
-        console.log(searchTerm);
 
         $(".slick-carousel").slick("unslick");
         $(".slick-carousel").empty();
@@ -108,7 +105,6 @@ $(document).ready(function () {
                     console.log("Response", response);
 
                     response.items.forEach(function (item) {
-                        console.log(item);
                         let videoId = item.id.videoId;
                         let iframe = $("<iframe>").attr("width", "560").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + videoId)
                             .attr("frameborder", "0")
@@ -287,33 +283,32 @@ firebase.initializeApp(firebaseConfig);
 
 // declaration of firebase 
 var database = firebase.database();
-console.log(database);
+
 
 var feedback = database.ref("/feedback");
 
 //creation of reference that holds users and their passwords
 var storage = firebase.storage();
-console.log(storage);
+
 
 // create a storage reference from the storage service
 var userRef = storage.ref();
 
 //   create a child reference to hold user login info
 var loginRef = userRef.child('User Login Info');
-console.log(loginRef);
+
 
 // create a child reference to hold user preferences such as videos, images, ect...
 var userPreferencesRef = userRef.child('User Preferences');
-console.log(userPreferencesRef);
+
 
 // create a child reference for userPreferencesRef that will hold the videos
 var videos = userPreferencesRef.child('Videos');
-console.log(videos);
+
 
 // create a child reference for the videos reference that holds user made videos
 var userMade = videos.child('User Made');
-console.log(userMade);
+
 
 // create a child reference for the videos reference that holds user favorite videos
 var favorites = videos.child('Favorites');
-console.log(favorites);
