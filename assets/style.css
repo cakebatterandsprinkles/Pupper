@@ -67,9 +67,8 @@ iframe {
     text-align: center;
 }
 
-#illustration-main {
+.card-image img {
     max-width: 30rem;
-    border-radius: 400px;
 }
 
 #illustration-contact {
@@ -282,6 +281,10 @@ h4 {
     color: white;
 }
 
+#playlist-videos {
+    text-align: center;
+}
+
 
 .playlist-button {
     border: 2px solid ;
@@ -388,28 +391,23 @@ h4 {
 }
 
 .accountCard {
-
     width: 100%;
     background-color: rgb(86, 121, 175);
     position: relative;
     padding: 0%;
-
-
 }
 
 .modal {
-    background-color: pink;
+    background-color: white;
     color: black;
-    border-radius: 1%;
-    
+    overflow: visible;
+    height: 500px;
+    padding:1.25rem;
 }
+
 .modal-content {
     color:black;
-    line-height: 0%;
-    margin:0%;
-    
     border-radius: 10%;
-    position: relative;
 }
 
 .validate {
@@ -428,7 +426,7 @@ h4 {
     background-image: url("../assets/images/blur-blurred-colors-938967.jpg");
     /* background-position: center; */
     }
-    #illustration-main {
+     .card-image img {
         max-width: 20rem;
         margin-top: 50px;
     }
@@ -454,7 +452,6 @@ h4 {
     text-align: left;
   }
 }
-}
 
 
 
@@ -462,7 +459,7 @@ h4 {
 
     
 
-    #illustration-main {
+     .card-image img {
         max-width: 20rem;
         margin-top: 50px;
     }
