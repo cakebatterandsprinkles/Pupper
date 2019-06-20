@@ -102,7 +102,6 @@ $(document).ready(function () {
 
         $.get("https://content.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=" + searchTerm + "&type=video&key=AIzaSyBzAxY1nCJJ8ViZ9WXy4uJPnRGrudkJnrc")
             .then(function (response) {
-                    console.log("Response", response);
 
                     response.items.forEach(function (item) {
                         let videoId = item.id.videoId;
@@ -136,10 +135,6 @@ $(document).ready(function () {
             return;
         }
 
-        console.log(name);
-        console.log(petname);
-        console.log(pettype);
-
         $("#main-header").html('<h1>Hello ' + name + ' & ' + petname + '!</h1>');
         $("#slogan").html("Welcome to your personalized Pet TV!");
 
@@ -157,12 +152,11 @@ $(document).ready(function () {
 });
 
 function getPetGif(pettype) {
-    let queryUrl = "http://api.giphy.com/v1/gifs/search?q=" +
+    let queryUrl = "https://api.giphy.com/v1/gifs/search?q=" +
         pettype.toLowerCase() +
         "&api_key=rD1UAc0GsPoRiL1JMVl6T3mJGQdJ3SYU&limit=5";
 
     $.get(queryUrl).then(function (data) {
-        console.log(data);
 
         $("#card-image").empty();
         let url = data.data[0].images.original.url;
