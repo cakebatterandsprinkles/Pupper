@@ -2,6 +2,7 @@ let prevArrow = '<i class="fas fa-chevron-left"></i>';
 let nextArrow = '<i class="fas fa-chevron-right"></i>';
 
 let favoritesList = [];
+let userVideos = [];
 let playlist = [];
 
 $(document).ready(function () {
@@ -52,6 +53,20 @@ $(document).ready(function () {
         }
     });
 
+    $(".user-video-button").on("click", function () {
+        const currentVideoUrl = $(".slick-current iframe").attr("src");
+    
+        if (userVideos.indexOf(currentVideoUrl) == -1) {
+    
+            userVideos.push(currentVideoUrl);
+    
+            database.ref("userVideos/").set(userVideos);
+        
+            showUserVideos();
+        }
+     
+    });
+
     database.ref("favorites/").on("value", function (snapshot) {
         if (snapshot.val() !== null) {
             favoritesList = snapshot.val();
@@ -59,6 +74,13 @@ $(document).ready(function () {
         }
     });
 
+    database.ref("userVideos/").on("value", function (snapshot) {
+        if (snapshot.val() !== null) {
+            userVideos = snapshot.val();
+            showUserVideos();
+        }
+    });
+    
     database.ref("playlist/").on("value", function (snapshot) {
         if (snapshot.val() !== null) {
             playlist = snapshot.val();
@@ -246,6 +268,52 @@ function removeFavorite(url) {
         database.ref("favorites/").set(favoritesList);
     }
     showFavorites();
+}
+
+function showUserVideos() {
+$("#user-vids").empty();
+
+if (userVideos !== null) {
+    userVideos.forEach(function (item) {
+        let iframe = $("<iframe>")
+            .attr("width", "320")
+            .attr("height", "180")
+            .attr("src", item)
+            .attr("frameborder", "0")
+            .attr("allowfullscreen", "true");
+
+        let removeButton = $("<button>")
+            .addClass("remove-button waves-effect waves-light btn-sm")
+            .html('<i class="fas fa-trash"></i> Remove')
+            .on("click", function () {
+                removeUserVideo(item);
+            });
+        
+        let playlistButton = $("<button>")
+        .addClass("playlist-button waves-effect waves-light btn-sm")
+        .html('<i class="fas fa-play-circle"></i> Add to playlist')
+        .on("click", function () {
+            removeUserVideo(item);
+            addPlaylist(item);
+        });
+
+        let thumbnail = $("<div>").addClass("thumbnail").append(iframe).append(removeButton).append(playlistButton);
+        $("#user-vids").append(thumbnail);
+    });
+}
+}
+
+function removeUserVideo(url) {
+
+    if (userVideos !== null) {
+        userVideos = userVideos.filter(function (item) {
+            return item !== url;
+        });
+
+        database.ref("userVideos/").set(userVideos);
+    }
+
+    showUserVideos();
 }
 
 function addPlaylist(url) {
