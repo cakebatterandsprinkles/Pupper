@@ -6,19 +6,24 @@ The idea for Pupper stemmed from Team Awesome Possum's collective love for our p
 
 ## How It Works
 
-### Add your and your pet's information. This will bring you a grettings text with a cute gif from Giphy!
+:curly_loop: Add your and your pet's information. This will bring you a grettings text with a cute gif from Giphy!
+
 
 ![Here is the demo](assets/images/addinfo.gif)
 
-### Search for the videos, and if you like them, you can add them to your favorites. You can save your own personalized video messages as well.
+
+:curly_loop: Search for the videos, and if you like them, you can add them to your favorites. You can save your own personalized video messages as well.
+
 
 ![Here is the demo](assets/images/addtofavs.gif)
 
-### Make a playlist while skimming through your favorite videos & saved video messages.
+:curly_loop: Make a playlist while skimming through your favorite videos & saved video messages.
+
 
 ![Here is the demo](assets/images/addtoplaylist.gif)
 
-### You can contact us if you have any suggestions.
+:curly_loop: You can contact us if you have any suggestions.
+
 
 ![Here is the demo](assets/images/contact.gif)
 
